@@ -1,0 +1,2394 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-surface">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Dashboard Transparansi Anggaran & E-Budgeting APBD Provinsi Lampung</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols Outlined -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- Tailwind CSS via CDN with customized config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#00450d",
+            "primary-container": "#1b5e20",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#acf4a4",
+            "primary-fixed-dim": "#91d78a",
+            "on-primary-fixed": "#002203",
+            "on-primary-fixed-variant": "#0c5216",
+            "on-primary-container": "#90d689",
+            "inverse-primary": "#91d78a",
+            "secondary": "#835400",
+            "secondary-container": "#fcab28",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#694300",
+            "secondary-fixed": "#ffddb5",
+            "secondary-fixed-dim": "#ffb957",
+            "on-secondary-fixed": "#2a1800",
+            "on-secondary-fixed-variant": "#643f00",
+            "tertiary": "#003a75",
+            "tertiary-container": "#00509f",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#d6e3ff",
+            "tertiary-fixed-dim": "#a9c7ff",
+            "on-tertiary-fixed": "#001b3d",
+            "on-tertiary-fixed-variant": "#00468c",
+            "on-tertiary-container": "#a6c5ff",
+            "error": "#ba1a1a",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "background": "#fcf9f8",
+            "surface": "#fcf9f8",
+            "surface-bright": "#fcf9f8",
+            "surface-dim": "#dcd9d9",
+            "surface-tint": "#2a6b2c",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f6f3f2",
+            "surface-container": "#f0eded",
+            "surface-container-high": "#eae7e7",
+            "surface-container-highest": "#e5e2e1",
+            "surface-variant": "#e5e2e1",
+            "on-surface": "#1c1b1b",
+            "on-surface-variant": "#41493e",
+            "on-background": "#1c1b1b",
+            "outline": "#717a6d",
+            "outline-variant": "#c0c9bb",
+            "inverse-surface": "#313030",
+            "inverse-on-surface": "#f3f0ef"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "0.75rem",
+            "margin": "2rem",
+            "margin-mobile": "1rem"
+          },
+          fontFamily: {
+            "headline-xl": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-xl-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "title-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "label-sm": ["Inter", "sans-serif"],
+            "currency-display": ["JetBrains Mono", "monospace"],
+            "currency-display-mobile": ["JetBrains Mono", "monospace"],
+            "currency-md": ["JetBrains Mono", "monospace"],
+            "currency-sm": ["JetBrains Mono", "monospace"]
+          },
+          fontSize: {
+            "headline-xl": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-xl-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-lg": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-lg-mobile": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+            "headline-md": ["18px", { lineHeight: "26px", fontWeight: "600" }],
+            "title-md": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+            "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }],
+            "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.03em", fontWeight: "600" }],
+            "currency-display": ["28px", { lineHeight: "34px", letterSpacing: "-0.03em", fontWeight: "700" }],
+            "currency-display-mobile": ["20px", { lineHeight: "28px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "currency-md": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+            "currency-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #fcf9f8;
+      color: #1c1b1b;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      overscroll-behavior: none;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      vertical-align: middle;
+    }
+    .font-mono-num {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col text-on-surface antialiased">
+
+  <!-- TOP CONTEXT BANNER / MODE SELECTOR -->
+  <aside class="bg-surface-container-high border-b border-outline-variant/30 text-xs px-4 py-1.5 flex flex-wrap items-center justify-between gap-2 z-50">
+    <div class="flex items-center gap-2 text-on-surface-variant">
+      <span class="inline-flex items-center gap-1 font-semibold text-primary">
+        <span class="material-symbols-outlined text-[16px]">account_balance</span>
+        Sistem Informasi Transparansi Fiskal Lampung
+      </span>
+      <span class="text-outline">|</span>
+      <span>UTS PPSI: <strong class="text-on-surface">Rafly Iqbal Maulana (24311130)</strong></span>
+      <span class="hidden md:inline text-outline">• Pembimbing: Dr. Erliyan Redy Susanto, M.Kom</span>
+    </div>
+    <div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-0.5 rounded-lg border border-outline-variant/30">
+      <span class="text-[11px] font-medium text-on-surface-variant">Navigasi Halaman PRD:</span>
+      <select id="quickNavSelector" onchange="switchView(this.value)" class="text-xs font-semibold bg-transparent border-0 focus:ring-0 text-primary cursor-pointer py-0.5">
+        <optgroup label="Portal Publik">
+          <option value="beranda">Beranda Publik (F1)</option>
+          <option value="realisasi">Realisasi & Hierarki OPD (F2)</option>
+          <option value="pencarian">Pencarian & Ekspor CSV (F3)</option>
+          <option value="notifikasi-publik">Langganan Notifikasi (F7)</option>
+        </optgroup>
+        <optgroup label="Internal Bappeda">
+          <option value="internal-bappeda">Dashboard Analis Bappeda (F6)</option>
+          <option value="impor-data">Impor & Validasi Data (F4)</option>
+          <option value="versi">Versi & Publikasi Data (F5)</option>
+          <option value="audit-log">Audit Log Append-Only (F8)</option>
+        </optgroup>
+        <optgroup label="State Tambahan">
+          <option value="empty-state">Halaman Data Belum Tersedia</option>
+          <option value="error-state">Halaman Layanan Terganggu (No Numbers)</option>
+          <option value="login">Halaman Login Split-Screen</option>
+        </optgroup>
+      </select>
+    </div>
+  </aside>
+
+  <!-- HEADER INSTITUSIONAL FIXED (Desktop h-28 / 112px, Mobile h-16 / 64px) -->
+  <header class="fixed top-7 left-0 right-0 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.06)] z-40 border-b border-outline-variant/30">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-margin flex flex-col justify-between h-24 md:h-28">
+      
+      <!-- Baris 1: Logo Pemda (Kiri) + Judul Tengah + Logo UTI (Kanan) -->
+      <div class="flex items-center justify-between py-2 md:py-3 border-b border-outline-variant/20">
+        <!-- Logo Pemda Lampung (Kiri) -->
+        <div class="flex items-center gap-3">
+          <img src="./Lampung_coa.png" alt="Lambang Daerah Provinsi Lampung" class="h-10 md:h-12 w-auto object-contain shrink-0" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/4/4b/Lampung_coa.png';" />
+          <div>
+            <div class="text-[11px] md:text-label-sm uppercase font-bold tracking-wider text-primary">Pemerintah Provinsi Lampung</div>
+            <div class="text-sm md:text-title-md font-bold text-on-surface tracking-tight">Portal Transparansi APBD & E-Budgeting</div>
+          </div>
+        </div>
+
+        <!-- Status Badge Tengah (Desktop) -->
+        <div class="hidden lg:flex items-center gap-2">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Data per 31 Oktober 2026 • Tervalidasi BPKAD
+          </span>
+          <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-secondary-fixed text-on-secondary-fixed">
+            APBD Murni 2026
+          </span>
+        </div>
+
+        <!-- Logo UTI (Kanan) + Avatar User -->
+        <div class="flex items-center gap-3">
+          <div class="text-right hidden sm:block">
+            <div class="text-[10px] uppercase font-bold tracking-wider text-tertiary">Kerjasama Akademik</div>
+            <div class="text-xs font-bold text-on-surface">Universitas Teknokrat Indonesia</div>
+          </div>
+          <img src="./UNIVERSITASTEKNOKRAT.png" alt="Logo Universitas Teknokrat Indonesia" class="h-10 md:h-12 w-auto object-contain shrink-0" onerror="this.onerror=null; this.src='https://teknokrat.ac.id/wp-content/uploads/2022/04/Universitas-Teknokrat-Indonesia-Logo.png';" />
+          
+          <button onclick="switchView('login')" title="Area Internal Bappeda" class="hidden md:flex w-9 h-9 rounded-full bg-primary text-on-primary items-center justify-center hover:bg-primary-container transition-colors shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">person</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Baris 2: Navigasi Desktop -->
+      <nav class="hidden md:flex items-center justify-between gap-1 overflow-x-auto py-1">
+        <div class="flex items-center gap-1">
+          <button onclick="switchView('beranda')" id="nav-beranda" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold transition-all bg-primary text-on-primary shadow-sm">
+            Beranda
+          </button>
+          <button onclick="switchView('realisasi')" id="nav-realisasi" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold transition-all text-on-surface-variant hover:bg-surface-container">
+            Realisasi per OPD
+          </button>
+          <button onclick="switchView('pencarian')" id="nav-pencarian" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold transition-all text-on-surface-variant hover:bg-surface-container">
+            Pencarian & Data CSV
+          </button>
+          <button onclick="switchView('notifikasi-publik')" id="nav-notifikasi-publik" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold transition-all text-on-surface-variant hover:bg-surface-container">
+            Publikasi & Dokumen
+          </button>
+          <span class="text-outline-variant/60 mx-1">|</span>
+          <button onclick="switchView('internal-bappeda')" id="nav-internal-bappeda" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-semibold transition-all text-on-surface-variant hover:bg-surface-container flex items-center gap-1">
+            <span class="material-symbols-outlined text-[18px] text-secondary">admin_panel_settings</span>
+            Internal Bappeda
+          </button>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="text-on-surface-variant">Tahun Anggaran:</span>
+          <span class="font-mono-num font-bold px-2 py-0.5 rounded bg-surface-container-high text-primary">2026 (Aktif)</span>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Garis Gradien 3px di dasar header: primary-container -> secondary-container -> secondary -->
+    <div class="h-[3px] w-full bg-gradient-to-r from-primary-container via-secondary-container to-secondary"></div>
+  </header>
+
+  <!-- MAIN CONTAINER (pt-36 untuk mengakomodasi banner + header fixed h-28) -->
+  <main class="flex-1 pt-36 md:pt-36 pb-20 md:pb-12 bg-surface">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-margin flex flex-col gap-6">
+
+      <!-- ============================================================== -->
+      <!-- VIEW 1: BERANDA PUBLIK (F1) -->
+      <!-- ============================================================== -->
+      <section id="view-beranda" class="view-panel space-y-6">
+        
+        <!-- Hero Header Ringkasan Eksekutif -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-outline-variant/20">
+          <div>
+            <div class="inline-flex items-center gap-2 mb-1">
+              <span class="px-2 py-0.5 rounded text-xs font-bold bg-primary/10 text-primary">Transparansi Fiskal Daerah</span>
+              <span class="text-xs text-on-surface-variant">UU No. 14 Tahun 2008 & Permendagri No. 77/2020</span>
+            </div>
+            <h1 class="text-2xl md:text-headline-xl font-bold font-headline-xl text-on-surface tracking-tight">
+              Realisasi APBD Provinsi Lampung T.A. 2026
+            </h1>
+            <p class="text-sm text-on-surface-variant">
+              Ringkasan realisasi belanja daerah berdasarkan Surat Perintah Pencairan Dana (SP2D) yang telah terverifikasi.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="downloadBudgetCSV()" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-semibold text-sm shadow-sm active:scale-[0.98] transition-all">
+              <span class="material-symbols-outlined text-[18px]">download</span>
+              Unduh CSV APBD
+            </button>
+            <button onclick="switchView('realisasi')" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-semibold text-sm transition-all">
+              <span class="material-symbols-outlined text-[18px]">account_tree</span>
+              Telusuri per OPD
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 KARTU KPI UTAMA (Strip warna atas h-1, font JetBrains Mono) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- KPI 1: Total Alokasi (Pagu) -->
+          <div class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col justify-between">
+            <div class="h-1 bg-primary-container"></div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-label-sm uppercase font-bold tracking-wider text-on-surface-variant">Total Pagu Alokasi</span>
+                <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined">payments</span>
+                </div>
+              </div>
+              <div class="text-xl md:text-currency-display font-bold font-mono-num text-on-surface tracking-tight">
+                Rp 8,15 T
+              </div>
+              <div class="text-xs font-mono-num text-on-surface-variant mt-1">
+                Rp 8.154.250.000.000,00
+              </div>
+              <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center gap-1.5 text-xs text-on-surface-variant">
+                <span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+                <span>Ditetapkan dalam Perda APBD 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 2: Total Realisasi (SP2D) -->
+          <div class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col justify-between">
+            <div class="h-1 bg-primary"></div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-label-sm uppercase font-bold tracking-wider text-on-surface-variant">Total Realisasi Belanja</span>
+                <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
+                  <span class="material-symbols-outlined">account_balance_wallet</span>
+                </div>
+              </div>
+              <div class="text-xl md:text-currency-display font-bold font-mono-num text-primary tracking-tight">
+                Rp 5,75 T
+              </div>
+              <div class="text-xs font-mono-num text-on-surface-variant mt-1">
+                Rp 5.748.744.000.000,00
+              </div>
+              <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center gap-1.5 text-xs text-on-surface-variant">
+                <span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+                <span>SP2D Terbit s.d. Oktober 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 3: Sisa Anggaran (Pagu - Realisasi) -->
+          <div class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col justify-between">
+            <div class="h-1 bg-secondary"></div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-label-sm uppercase font-bold tracking-wider text-on-surface-variant">Sisa Kas Anggaran</span>
+                <div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+                  <span class="material-symbols-outlined">savings</span>
+                </div>
+              </div>
+              <div class="text-xl md:text-currency-display font-bold font-mono-num text-secondary tracking-tight">
+                Rp 2,41 T
+              </div>
+              <div class="text-xs font-mono-num text-on-surface-variant mt-1">
+                Rp 2.405.506.000.000,00
+              </div>
+              <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center gap-1.5 text-xs text-on-surface-variant">
+                <span class="material-symbols-outlined text-[16px] text-secondary">calculate</span>
+                <span>Rumus: Pagu Alokasi − Realisasi</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 4: Persentase Serapan & Status -->
+          <div class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col justify-between">
+            <div class="h-1 bg-secondary-container"></div>
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-label-sm uppercase font-bold tracking-wider text-on-surface-variant">Kinerja Serapan APBD</span>
+                <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-secondary-fixed text-on-secondary-fixed-variant">
+                  Waspada
+                </span>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <span class="text-xl md:text-currency-display font-bold font-mono-num text-on-surface tracking-tight">
+                  70,50%
+                </span>
+                <span class="text-xs text-on-surface-variant font-medium">Target Q3: 75%</span>
+              </div>
+              <!-- Progress Bar -->
+              <div class="w-full bg-surface-container-high rounded-full h-2.5 mt-3 overflow-hidden">
+                <div class="bg-gradient-to-r from-primary to-secondary-container h-2.5 rounded-full" style="width: 70.50%"></div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-xs text-on-surface-variant">
+                <span>Evaluasi Semester II</span>
+                <span class="font-semibold text-secondary">Perlu Perhatian</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEKSI GAUGE & KOMPARASI ANGGARAN OPD (Grid 12 Kolom) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          <!-- Kolom 1-4: Gauge Semi-Lingkaran Status Serapan -->
+          <div class="lg:col-span-4 bg-surface-container-lowest rounded-xl shadow-sm p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-title-md font-bold text-on-surface">Indikator Serapan Fiskal</h3>
+                <span class="material-symbols-outlined text-outline">speed</span>
+              </div>
+              <p class="text-body-sm text-on-surface-variant mb-4">
+                Tingkat serapan belanja provinsi terhadap target per 31 Oktober 2026.
+              </p>
+              
+              <!-- SVG Semi-Circular Gauge -->
+              <div class="flex flex-col items-center justify-center my-2">
+                <svg viewBox="0 0 200 110" class="w-56 h-auto">
+                  <!-- Arc Merah (<50% Kritis) -->
+                  <path d="M 20 100 A 80 80 0 0 1 65 35" fill="none" stroke="#ba1a1a" stroke-width="14" stroke-linecap="round" />
+                  <!-- Arc Emas (50-70% Waspada) -->
+                  <path d="M 69 32 A 80 80 0 0 1 131 32" fill="none" stroke="#fcab28" stroke-width="14" />
+                  <!-- Arc Hijau (>70% Optimal) -->
+                  <path d="M 135 35 A 80 80 0 0 1 180 100" fill="none" stroke="#00450d" stroke-width="14" stroke-linecap="round" />
+                  
+                  <!-- Jarum Indikator di posisi 70.50% (sekitar 127 derajat) -->
+                  <g transform="rotate(127, 100, 100)">
+                    <line x1="100" y1="100" x2="100" y2="30" stroke="#1c1b1b" stroke-width="3.5" stroke-linecap="round" />
+                    <circle cx="100" cy="100" r="7" fill="#1c1b1b" />
+                  </g>
+                </svg>
+                <div class="text-center mt-2">
+                  <div class="text-2xl font-bold font-mono-num text-on-surface">70,50%</div>
+                  <div class="text-xs font-semibold text-secondary uppercase tracking-wide">Status: Waspada / Perlu Perhatian</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Legenda Gauge 3 Warna -->
+            <div class="grid grid-cols-3 gap-2 text-center pt-4 border-t border-outline-variant/20 mt-4">
+              <div class="p-2 rounded bg-error-container/20">
+                <div class="w-3 h-3 rounded-full bg-error mx-auto mb-1"></div>
+                <div class="text-[11px] font-bold text-error">&lt; 50%</div>
+                <div class="text-[10px] text-on-surface-variant">Kritis</div>
+              </div>
+              <div class="p-2 rounded bg-secondary-fixed/40">
+                <div class="w-3 h-3 rounded-full bg-secondary-container mx-auto mb-1"></div>
+                <div class="text-[11px] font-bold text-secondary">50–70%</div>
+                <div class="text-[10px] text-on-surface-variant">Waspada</div>
+              </div>
+              <div class="p-2 rounded bg-primary/10">
+                <div class="w-3 h-3 rounded-full bg-primary mx-auto mb-1"></div>
+                <div class="text-[11px] font-bold text-primary">&gt; 70%</div>
+                <div class="text-[10px] text-on-surface-variant">Optimal</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kolom 5-12: Komparasi Pagu vs Realisasi Perangkat Daerah Kunci -->
+          <div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-sm p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                <div>
+                  <h3 class="text-title-md font-bold text-on-surface">Serapan Anggaran Berdasarkan OPD Utama</h3>
+                  <p class="text-body-sm text-on-surface-variant">Perbandingan Pagu Alokasi (Emas) dan Realisasi SP2D (Hijau Hutan).</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="inline-flex items-center gap-1 text-xs text-on-surface-variant">
+                    <span class="w-3 h-3 rounded bg-secondary-container opacity-80"></span> Pagu
+                  </span>
+                  <span class="inline-flex items-center gap-1 text-xs text-on-surface-variant">
+                    <span class="w-3 h-3 rounded bg-primary"></span> Realisasi
+                  </span>
+                </div>
+              </div>
+
+              <!-- List Komparasi OPD Bar Ganda -->
+              <div class="space-y-3.5">
+                <!-- OPD 1: Dinas Pendidikan -->
+                <div class="p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+                  <div class="flex items-center justify-between text-xs font-semibold mb-1">
+                    <span class="text-on-surface">Dinas Pendidikan dan Kebudayaan Provinsi Lampung</span>
+                    <span class="font-mono-num text-primary font-bold">86,67% (Optimal)</span>
+                  </div>
+                  <div class="h-3 relative bg-surface-container-high rounded-full overflow-hidden">
+                    <div class="absolute inset-0 bg-secondary-container opacity-40 rounded-full" style="width: 100%"></div>
+                    <div class="absolute inset-y-0 left-0 bg-primary rounded-full" style="width: 86.67%"></div>
+                  </div>
+                  <div class="flex justify-between items-center text-[11px] font-mono-num text-on-surface-variant mt-1.5">
+                    <span>Pagu: Rp 2.100.000.000.000,00</span>
+                    <span class="text-primary font-semibold">Realisasi: Rp 1.820.000.000.000,00</span>
+                  </div>
+                </div>
+
+                <!-- OPD 2: Dinas Kesehatan -->
+                <div class="p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+                  <div class="flex items-center justify-between text-xs font-semibold mb-1">
+                    <span class="text-on-surface">Dinas Kesehatan Provinsi Lampung</span>
+                    <span class="font-mono-num text-primary font-bold">84,14% (Optimal)</span>
+                  </div>
+                  <div class="h-3 relative bg-surface-container-high rounded-full overflow-hidden">
+                    <div class="absolute inset-0 bg-secondary-container opacity-40 rounded-full" style="width: 100%"></div>
+                    <div class="absolute inset-y-0 left-0 bg-primary rounded-full" style="width: 84.14%"></div>
+                  </div>
+                  <div class="flex justify-between items-center text-[11px] font-mono-num text-on-surface-variant mt-1.5">
+                    <span>Pagu: Rp 1.450.000.000.000,00</span>
+                    <span class="text-primary font-semibold">Realisasi: Rp 1.220.000.000.000,00</span>
+                  </div>
+                </div>
+
+                <!-- OPD 3: Dinas BMBK -->
+                <div class="p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+                  <div class="flex items-center justify-between text-xs font-semibold mb-1">
+                    <span class="text-on-surface">Dinas Bina Marga dan Bina Konstruksi (BMBK)</span>
+                    <span class="font-mono-num text-secondary font-bold">72,50% (Waspada)</span>
+                  </div>
+                  <div class="h-3 relative bg-surface-container-high rounded-full overflow-hidden">
+                    <div class="absolute inset-0 bg-secondary-container opacity-40 rounded-full" style="width: 100%"></div>
+                    <div class="absolute inset-y-0 left-0 bg-secondary-container rounded-full" style="width: 72.50%"></div>
+                  </div>
+                  <div class="flex justify-between items-center text-[11px] font-mono-num text-on-surface-variant mt-1.5">
+                    <span>Pagu: Rp 1.200.000.000.000,00</span>
+                    <span class="text-secondary font-semibold">Realisasi: Rp 870.000.000.000,00</span>
+                  </div>
+                </div>
+
+                <!-- OPD 4: Dinas Perkim Cipta Karya (Kritis) -->
+                <div class="p-3 rounded-lg bg-error-container/15 hover:bg-error-container/25 transition-colors border-l-4 border-error">
+                  <div class="flex items-center justify-between text-xs font-semibold mb-1">
+                    <span class="text-on-surface flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[16px] text-error">warning</span>
+                      Dinas Perumahan, Kawasan Permukiman dan Cipta Karya
+                    </span>
+                    <span class="font-mono-num text-error font-bold">47,14% (Kritis)</span>
+                  </div>
+                  <div class="h-3 relative bg-surface-container-high rounded-full overflow-hidden">
+                    <div class="absolute inset-0 bg-secondary-container opacity-40 rounded-full" style="width: 100%"></div>
+                    <div class="absolute inset-y-0 left-0 bg-error rounded-full" style="width: 47.14%"></div>
+                  </div>
+                  <div class="flex justify-between items-center text-[11px] font-mono-num text-on-surface-variant mt-1.5">
+                    <span>Pagu: Rp 420.000.000.000,00</span>
+                    <span class="text-error font-semibold">Realisasi: Rp 198.000.000.000,00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-outline-variant/20 flex justify-end">
+              <button onclick="switchView('realisasi')" class="text-xs font-semibold text-primary hover:text-primary-container flex items-center gap-1">
+                Lihat Seluruh 47 Perangkat Daerah <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- KOTAK RUJUKAN REGULASI & KETERBUKAAN INFORMASI -->
+        <div class="bg-surface-container-low rounded-xl p-4 flex items-start gap-3 border border-outline-variant/30">
+          <span class="material-symbols-outlined text-primary text-[24px] shrink-0 mt-0.5">policy</span>
+          <div class="text-body-sm text-on-surface-variant space-y-1">
+            <h4 class="font-bold text-on-surface text-sm">Prinsip Akurasi & Keterbukaan Informasi Publik</h4>
+            <p>
+              Data yang disajikan pada dashboard ini bersumber dari sistem penatausahaan keuangan daerah Pemerintah Provinsi Lampung dan dikonsolidasi oleh Bappeda. Seluruh data numerik dihitung menggunakan desimal berpresisi tetap untuk menjamin ketiadaan selisih pembulatan, dipublikasikan berdasarkan amanat <strong>UU No. 14 Tahun 2008</strong> tentang Keterbukaan Informasi Publik dan <strong>Permendagri No. 77 Tahun 2020</strong> tentang Pedoman Teknis Pengelolaan Keuangan Daerah.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 2: REALISASI & PENELUSURAN HIERARKI (F2) -->
+      <!-- ============================================================== -->
+      <section id="view-realisasi" class="view-panel hidden space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-outline-variant/20">
+          <div>
+            <div class="flex items-center gap-2 text-xs text-on-surface-variant mb-1">
+              <button onclick="switchView('beranda')" class="hover:underline">Beranda</button>
+              <span>/</span>
+              <span class="font-semibold text-primary">Penelusuran Hierarki Anggaran</span>
+            </div>
+            <h1 class="text-2xl font-bold font-headline-lg text-on-surface">
+              Hierarki Belanja: OPD → Program → Kegiatan → Sub Kegiatan
+            </h1>
+            <p class="text-sm text-on-surface-variant">
+              Validasi ketat: Total nilai kegiatan merupakan akumulasi pasti dari sub kegiatan di bawahnya.
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="expandAllHierarchy()" class="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-xs font-semibold text-on-surface flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">unfold_more</span> Buka Semua
+            </button>
+            <button onclick="collapseAllHierarchy()" class="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-xs font-semibold text-on-surface flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">unfold_less</span> Tutup Semua
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Cepat OPD -->
+        <div class="flex flex-wrap items-center gap-2 p-3 bg-surface-container-lowest rounded-xl shadow-sm">
+          <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Pilih OPD:</span>
+          <button onclick="filterOPDView('all')" id="btn-opd-all" class="opd-filter-btn px-3 py-1 rounded-lg text-xs font-bold bg-primary text-on-primary">Semua OPD</button>
+          <button onclick="filterOPDView('bmbk')" id="btn-opd-bmbk" class="opd-filter-btn px-3 py-1 rounded-lg text-xs font-semibold text-on-surface-variant hover:bg-surface-container">Dinas BMBK</button>
+          <button onclick="filterOPDView('dinkes')" id="btn-opd-dinkes" class="opd-filter-btn px-3 py-1 rounded-lg text-xs font-semibold text-on-surface-variant hover:bg-surface-container">Dinas Kesehatan</button>
+          <button onclick="filterOPDView('disdik')" id="btn-opd-disdik" class="opd-filter-btn px-3 py-1 rounded-lg text-xs font-semibold text-on-surface-variant hover:bg-surface-container">Dinas Pendidikan</button>
+          <button onclick="filterOPDView('perkim')" id="btn-opd-perkim" class="opd-filter-btn px-3 py-1 rounded-lg text-xs font-semibold text-on-surface-variant hover:bg-surface-container">Dinas Perkim</button>
+        </div>
+
+        <!-- TABEL HIERARKI BERJENJANG (Program pl-4, Kegiatan pl-10, Sub Kegiatan pl-16) -->
+        <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead class="bg-surface-container-low text-on-surface-variant uppercase tracking-wider font-semibold border-b border-outline-variant/30">
+                <tr>
+                  <th class="py-3 px-4 w-2/5">Struktur Program / Kegiatan / Sub Kegiatan</th>
+                  <th class="py-3 px-4 text-right">Pagu Alokasi (Rp)</th>
+                  <th class="py-3 px-4 text-right">Realisasi SP2D (Rp)</th>
+                  <th class="py-3 px-4 text-right">Sisa Anggaran (Rp)</th>
+                  <th class="py-3 px-4 text-center w-36">Serapan</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-surface-container font-mono-num">
+                
+                <!-- LEVEL 1: PROGRAM DINAS BMBK -->
+                <tr class="bg-surface-container/60 hover:bg-surface-container/80 transition-colors font-sans cursor-pointer opd-row opd-bmbk" onclick="toggleRow('bmbk-prog-1')">
+                  <td class="py-3.5 px-4">
+                    <div class="flex items-center gap-2">
+                      <span id="icon-bmbk-prog-1" class="material-symbols-outlined text-primary text-[20px] transition-transform">keyboard_arrow_down</span>
+                      <span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-mono font-bold text-[11px]">1.03.01</span>
+                      <span class="font-bold text-on-surface text-sm uppercase">PROGRAM PENYELENGGARAAN JALAN DAN JEMBATAN PROVINSI</span>
+                    </div>
+                  </td>
+                  <td class="py-3.5 px-4 text-right font-bold text-on-surface">1.200.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-right font-bold text-primary">870.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-right font-bold text-secondary">330.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-center font-sans">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-secondary-fixed text-on-secondary-fixed-variant">
+                      72,50%
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- LEVEL 2: KEGIATAN 1 (Child of Prog 1) -->
+                <tr class="child-bmbk-prog-1 bg-surface-container-low/40 hover:bg-surface-container-low/70 transition-colors font-sans cursor-pointer opd-row opd-bmbk" onclick="toggleRow('bmbk-keg-1')">
+                  <td class="py-2.5 px-4 pl-10">
+                    <div class="flex items-center gap-2">
+                      <span id="icon-bmbk-keg-1" class="material-symbols-outlined text-outline text-[18px]">chevron_right</span>
+                      <span class="text-outline-variant font-mono text-xs">1.03.01.2.01</span>
+                      <span class="font-semibold text-on-surface text-xs">Penyelenggaraan Rekonstruksi & Peningkatan Kapasitas Jalan Provinsi</span>
+                    </div>
+                  </td>
+                  <td class="py-2.5 px-4 text-right font-medium">850.000.000.000,00</td>
+                  <td class="py-2.5 px-4 text-right font-medium text-primary">637.500.000.000,00</td>
+                  <td class="py-2.5 px-4 text-right font-medium text-secondary">212.500.000.000,00</td>
+                  <td class="py-2.5 px-4 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-secondary-fixed/50 text-secondary">75,00%</span>
+                  </td>
+                </tr>
+
+                <!-- LEVEL 3: SUB KEGIATAN 1A (Child of Keg 1) -->
+                <tr class="child-bmbk-keg-1 hidden bg-surface-container-lowest hover:bg-surface-container-low/30 transition-colors text-xs opd-row opd-bmbk">
+                  <td class="py-2 px-4 pl-16 font-sans">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-outline-variant text-[16px]">subdirectory_arrow_right</span>
+                      <span class="font-mono text-outline text-[11px]">1.03.01.2.01.0001</span>
+                      <span class="text-on-surface-variant">Rekonstruksi Jalan Ruas Simpang Ryacudu - Kota Baru (Kab. Lamsel)</span>
+                    </div>
+                  </td>
+                  <td class="py-2 px-4 text-right text-outline">500.000.000.000,00</td>
+                  <td class="py-2 px-4 text-right text-primary">400.000.000.000,00</td>
+                  <td class="py-2 px-4 text-right text-secondary">100.000.000.000,00</td>
+                  <td class="py-2 px-4 text-center font-sans">
+                    <span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-primary/10 text-primary">80,00%</span>
+                  </td>
+                </tr>
+
+                <!-- LEVEL 3: SUB KEGIATAN 1B (Child of Keg 1) -->
+                <tr class="child-bmbk-keg-1 hidden bg-surface-container-lowest hover:bg-surface-container-low/30 transition-colors text-xs opd-row opd-bmbk">
+                  <td class="py-2 px-4 pl-16 font-sans">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-outline-variant text-[16px]">subdirectory_arrow_right</span>
+                      <span class="font-mono text-outline text-[11px]">1.03.01.2.01.0002</span>
+                      <span class="text-on-surface-variant">Peningkatan Kapasitas Jalan Koridor Pertanian & Ketahanan Pangan</span>
+                    </div>
+                  </td>
+                  <td class="py-2 px-4 text-right text-outline">350.000.000.000,00</td>
+                  <td class="py-2 px-4 text-right text-primary">237.500.000.000,00</td>
+                  <td class="py-2 px-4 text-right text-secondary">112.500.000.000,00</td>
+                  <td class="py-2 px-4 text-center font-sans">
+                    <span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-secondary-fixed/50 text-secondary">67,86%</span>
+                  </td>
+                </tr>
+
+                <!-- LEVEL 2: KEGIATAN 2 (Child of Prog 1) -->
+                <tr class="child-bmbk-prog-1 bg-surface-container-low/40 hover:bg-surface-container-low/70 transition-colors font-sans cursor-pointer opd-row opd-bmbk" onclick="toggleRow('bmbk-keg-2')">
+                  <td class="py-2.5 px-4 pl-10">
+                    <div class="flex items-center gap-2">
+                      <span id="icon-bmbk-keg-2" class="material-symbols-outlined text-outline text-[18px]">chevron_right</span>
+                      <span class="text-outline-variant font-mono text-xs">1.03.01.2.02</span>
+                      <span class="font-semibold text-on-surface text-xs">Pemeliharaan Berkala dan Rehabilitasi Jembatan Provinsi</span>
+                    </div>
+                  </td>
+                  <td class="py-2.5 px-4 text-right font-medium">350.000.000.000,00</td>
+                  <td class="py-2.5 px-4 text-right font-medium text-primary">232.500.000.000,00</td>
+                  <td class="py-2.5 px-4 text-right font-medium text-secondary">117.500.000.000,00</td>
+                  <td class="py-2.5 px-4 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-secondary-fixed/50 text-secondary">66,43%</span>
+                  </td>
+                </tr>
+
+                <!-- LEVEL 3: SUB KEGIATAN 2A (Child of Keg 2) -->
+                <tr class="child-bmbk-keg-2 hidden bg-surface-container-lowest hover:bg-surface-container-low/30 transition-colors text-xs opd-row opd-bmbk">
+                  <td class="py-2 px-4 pl-16 font-sans">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-outline-variant text-[16px]">subdirectory_arrow_right</span>
+                      <span class="font-mono text-outline text-[11px]">1.03.01.2.02.0001</span>
+                      <span class="text-on-surface-variant">Rehabilitasi Jembatan Way Sekampung & Way Seputih Lintas Tengah</span>
+                    </div>
+                  </td>
+                  <td class="py-2 px-4 text-right text-outline">350.000.000.000,00</td>
+                  <td class="py-2 px-4 text-right text-primary">232.500.000.000,00</td>
+                  <td class="py-2 px-4 text-right text-secondary">117.500.000.000,00</td>
+                  <td class="py-2 px-4 text-center font-sans">
+                    <span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-secondary-fixed/50 text-secondary">66,43%</span>
+                  </td>
+                </tr>
+
+                <!-- PROGRAM DINAS KESEHATAN -->
+                <tr class="bg-surface-container/60 hover:bg-surface-container/80 transition-colors font-sans cursor-pointer opd-row opd-dinkes" onclick="toggleRow('dinkes-prog-1')">
+                  <td class="py-3.5 px-4">
+                    <div class="flex items-center gap-2">
+                      <span id="icon-dinkes-prog-1" class="material-symbols-outlined text-primary text-[20px] transition-transform">keyboard_arrow_down</span>
+                      <span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-mono font-bold text-[11px]">1.02.01</span>
+                      <span class="font-bold text-on-surface text-sm uppercase">PROGRAM PEMENUHAN UPAYA KESEHATAN DAERAH PROVINSI</span>
+                    </div>
+                  </td>
+                  <td class="py-3.5 px-4 text-right font-bold text-on-surface">1.450.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-right font-bold text-primary">1.220.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-right font-bold text-secondary">230.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-center font-sans">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-primary/10 text-primary">
+                      84,14%
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- KEGIATAN DINKES 1 -->
+                <tr class="child-dinkes-prog-1 bg-surface-container-low/40 hover:bg-surface-container-low/70 transition-colors font-sans opd-row opd-dinkes">
+                  <td class="py-2.5 px-4 pl-10">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-outline-variant text-[18px]">subdirectory_arrow_right</span>
+                      <span class="text-outline-variant font-mono text-xs">1.02.01.2.01</span>
+                      <span class="font-semibold text-on-surface text-xs">Penyediaan Fasilitas Pelayanan Kesehatan untuk UKM dan UKP Rujukan</span>
+                    </div>
+                  </td>
+                  <td class="py-2.5 px-4 text-right font-medium">1.450.000.000.000,00</td>
+                  <td class="py-2.5 px-4 text-right font-medium text-primary">1.220.000.000.000,00</td>
+                  <td class="py-2.5 px-4 text-right font-medium text-secondary">230.000.000.000,00</td>
+                  <td class="py-2.5 px-4 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary">84,14%</span>
+                  </td>
+                </tr>
+
+                <!-- PROGRAM DINAS PENDIDIKAN -->
+                <tr class="bg-surface-container/60 hover:bg-surface-container/80 transition-colors font-sans cursor-pointer opd-row opd-disdik" onclick="toggleRow('disdik-prog-1')">
+                  <td class="py-3.5 px-4">
+                    <div class="flex items-center gap-2">
+                      <span id="icon-disdik-prog-1" class="material-symbols-outlined text-primary text-[20px] transition-transform">keyboard_arrow_down</span>
+                      <span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-mono font-bold text-[11px]">1.01.01</span>
+                      <span class="font-bold text-on-surface text-sm uppercase">PROGRAM PENGELOLAAN PENDIDIKAN MENENGAH & KHUSUS</span>
+                    </div>
+                  </td>
+                  <td class="py-3.5 px-4 text-right font-bold text-on-surface">2.100.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-right font-bold text-primary">1.820.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-right font-bold text-secondary">280.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-center font-sans">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-primary/10 text-primary">
+                      86,67%
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- KEGIATAN DISDIK 1 -->
+                <tr class="child-disdik-prog-1 bg-surface-container-low/40 hover:bg-surface-container-low/70 transition-colors font-sans opd-row opd-disdik">
+                  <td class="py-2.5 px-4 pl-10">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-outline-variant text-[18px]">subdirectory_arrow_right</span>
+                      <span class="text-outline-variant font-mono text-xs">1.01.01.2.01</span>
+                      <span class="font-semibold text-on-surface text-xs">Pengelolaan Dana BOS Daerah & Sarana Prasarana SMA/SMK Negeri</span>
+                    </div>
+                  </td>
+                  <td class="py-2.5 px-4 text-right font-medium">2.100.000.000.000,00</td>
+                  <td class="py-2.5 px-4 text-right font-medium text-primary">1.820.000.000.000,00</td>
+                  <td class="py-2.5 px-4 text-right font-medium text-secondary">280.000.000.000,00</td>
+                  <td class="py-2.5 px-4 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary">86,67%</span>
+                  </td>
+                </tr>
+
+                <!-- PROGRAM PERKIM (KRITIS) -->
+                <tr class="bg-error-container/20 hover:bg-error-container/30 transition-colors font-sans cursor-pointer opd-row opd-perkim border-l-4 border-error" onclick="toggleRow('perkim-prog-1')">
+                  <td class="py-3.5 px-4">
+                    <div class="flex items-center gap-2">
+                      <span id="icon-perkim-prog-1" class="material-symbols-outlined text-error text-[20px] transition-transform">keyboard_arrow_down</span>
+                      <span class="px-2 py-0.5 rounded bg-error text-on-error font-mono font-bold text-[11px]">1.04.01</span>
+                      <span class="font-bold text-on-surface text-sm uppercase flex items-center gap-1">
+                        PROGRAM PENGEMBANGAN PERUMAHAN & KAWASAN PERMUKIMAN
+                        <span class="material-symbols-outlined text-[16px] text-error">warning</span>
+                      </span>
+                    </div>
+                  </td>
+                  <td class="py-3.5 px-4 text-right font-bold text-on-surface">420.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-right font-bold text-error">198.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-right font-bold text-secondary">222.000.000.000,00</td>
+                  <td class="py-3.5 px-4 text-center font-sans">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-error-container text-on-error-container">
+                      47,14% (Kritis)
+                    </span>
+                  </td>
+                </tr>
+
+                <!-- KEGIATAN PERKIM 1 -->
+                <tr class="child-perkim-prog-1 bg-surface-container-low/40 hover:bg-surface-container-low/70 transition-colors font-sans opd-row opd-perkim">
+                  <td class="py-2.5 px-4 pl-10">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-outline-variant text-[18px]">subdirectory_arrow_right</span>
+                      <span class="text-outline-variant font-mono text-xs">1.04.01.2.01</span>
+                      <span class="font-semibold text-on-surface text-xs">Peningkatan Kualitas Permukiman Kumuh Pesisir & Pengentasan RTLH</span>
+                    </div>
+                  </td>
+                  <td class="py-2.5 px-4 text-right font-medium">420.000.000.000,00</td>
+                  <td class="py-2.5 px-4 text-right font-medium text-error">198.000.000.000,00</td>
+                  <td class="py-2.5 px-4 text-right font-medium text-secondary">222.000.000.000,00</td>
+                  <td class="py-2.5 px-4 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-error-container text-on-error-container">47,14%</span>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <!-- Footer info tabel -->
+          <div class="p-3 bg-surface-container-low border-t border-outline-variant/30 flex flex-col sm:flex-row justify-between items-center text-xs text-on-surface-variant gap-2">
+            <div>Menampilkan struktur hierarki OPD aktif berdasarkan Kepmen 050/2020 & Perda APBD 2026.</div>
+            <div class="font-mono-num">Verifikasi Jumlah: <strong class="text-primary font-bold">Konsisten (0 Selisih)</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 3: PENCARIAN, FILTER & EKSPOR DATA CSV (F3) -->
+      <!-- ============================================================== -->
+      <section id="view-pencarian" class="view-panel hidden space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-outline-variant/20">
+          <div>
+            <h1 class="text-2xl font-bold font-headline-lg text-on-surface">Pencarian & Penapisan Data Anggaran</h1>
+            <p class="text-sm text-on-surface-variant">
+              Telusuri data alokasi dan realisasi program dengan filter multi-kriteria dan ekspor format CSV terbuka.
+            </p>
+          </div>
+          <button onclick="downloadBudgetCSV()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-semibold text-sm shadow-sm active:scale-[0.98] transition-all">
+            <span class="material-symbols-outlined text-[20px]">file_download</span>
+            Ekspor Data Filter (CSV)
+          </button>
+        </div>
+
+        <!-- Kolom 4/8 Split Layout Pencarian -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Sidebar Filter Kiri (4 Kolom) -->
+          <div class="lg:col-span-4 bg-surface-container-lowest rounded-xl shadow-sm p-5 space-y-4 border border-outline-variant/20 sticky top-40">
+            <div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+              <span class="font-bold text-sm text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px] text-primary">filter_alt</span>
+                Filter Pencarian
+              </span>
+              <button onclick="resetFilters()" class="text-xs text-secondary hover:underline font-semibold">Atur Ulang</button>
+            </div>
+
+            <!-- Input Kata Kunci -->
+            <div>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">Cari Kata Kunci</label>
+              <div class="relative">
+                <input id="searchInput" type="text" placeholder="Nama OPD, Program, Kegiatan..." oninput="applyFilters()" class="w-full pl-9 pr-3 py-2 rounded-lg bg-surface-container-low text-xs border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-primary text-on-surface" />
+                <span class="material-symbols-outlined absolute left-2.5 top-2.5 text-[16px] text-outline">search</span>
+              </div>
+            </div>
+
+            <!-- Filter Status Serapan -->
+            <div>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">Status Kinerja Serapan</label>
+              <select id="filterStatus" onchange="applyFilters()" class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-xs border border-outline-variant/30 text-on-surface focus:outline-none focus:ring-1 focus:ring-primary">
+                <option value="all">Semua Status (Optimal, Waspada, Kritis)</option>
+                <option value="optimal">Optimal (≥ 80%)</option>
+                <option value="waspada">Waspada (50% – 79.99%)</option>
+                <option value="kritis">Kritis / Tertinggal (&lt; 50%)</option>
+              </select>
+            </div>
+
+            <!-- Filter Jenis Belanja -->
+            <div>
+              <label class="block text-xs font-bold text-on-surface-variant mb-1">Jenis Belanja Daerah</label>
+              <select id="filterBelanja" onchange="applyFilters()" class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-xs border border-outline-variant/30 text-on-surface focus:outline-none focus:ring-1 focus:ring-primary">
+                <option value="all">Semua Kelompok Belanja</option>
+                <option value="modal">Belanja Modal (Jalan, Irigasi, Gedung)</option>
+                <option value="operasional">Belanja Operasional (Pegawai, Barang/Jasa)</option>
+                <option value="hibah">Belanja Bantuan Sosial & Hibah</option>
+                <option value="btt">Belanja Tidak Terduga (BTT)</option>
+              </select>
+            </div>
+
+            <!-- Standar Keterbukaan Info Data -->
+            <div class="p-3 rounded-lg bg-surface-container-low text-[11px] text-on-surface-variant space-y-1">
+              <div class="font-bold text-on-surface flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px] text-primary">verified_user</span>
+                Format Data Terbuka
+              </div>
+              <p>Ekspor CSV menggunakan standar UTF-8 dengan BOM (\uFEFF) untuk kompatibilitas sempurna dengan Microsoft Excel, angka desimal presisi tanpa notasi eksponensial.</p>
+            </div>
+          </div>
+
+          <!-- Tabel Hasil Pencarian Kanan (8 Kolom) -->
+          <div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+            <div class="p-4 border-b border-outline-variant/20 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+              <span id="searchResultCount" class="text-xs font-bold text-on-surface">Ditemukan 5 Data Program Anggaran</span>
+              <span class="text-xs text-on-surface-variant">Tahun Anggaran 2026</span>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead class="bg-surface-container-low text-on-surface-variant uppercase tracking-wider font-semibold">
+                  <tr>
+                    <th class="py-3 px-3">Kode Akun</th>
+                    <th class="py-3 px-3">Nama Program / Kegiatan</th>
+                    <th class="py-3 px-3">Perangkat Daerah (OPD)</th>
+                    <th class="py-3 px-3 text-right">Pagu Alokasi</th>
+                    <th class="py-3 px-3 text-right">Realisasi</th>
+                    <th class="py-3 px-3 text-center">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="searchTableBody" class="divide-y divide-surface-container font-mono-num">
+                  <!-- Data diisi oleh JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Empty State bila hasil tidak ditemukan -->
+            <div id="searchEmptyState" class="hidden py-12 px-4 text-center">
+              <div class="w-14 h-14 rounded-full bg-surface-container-low mx-auto flex items-center justify-center text-outline mb-3">
+                <span class="material-symbols-outlined text-[28px]">search_off</span>
+              </div>
+              <h4 class="text-sm font-bold text-on-surface">Tidak Ditemukan Hasil</h4>
+              <p class="text-xs text-on-surface-variant max-w-sm mx-auto mt-1">
+                Tidak ada program atau kegiatan anggaran yang sesuai dengan kriteria filter saat ini.
+              </p>
+              <button onclick="resetFilters()" class="mt-4 px-3 py-1.5 rounded-lg bg-primary text-on-primary text-xs font-semibold">
+                Atur Ulang Filter
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 4: NOTIFIKASI & LANGGANAN PUBLIK (F7) -->
+      <!-- ============================================================== -->
+      <section id="view-notifikasi-publik" class="view-panel hidden space-y-6">
+        <div class="pb-2 border-b border-outline-variant/20">
+          <h1 class="text-2xl font-bold font-headline-lg text-on-surface">Pusat Informasi & Langganan Notifikasi Fiskal</h1>
+          <p class="text-sm text-on-surface-variant">
+            Dapatkan pembaruan langsung saat Bappeda mempublikasikan data realisasi periode baru atau laporan triwulan.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Formulir Langganan Kiri (5 Kolom) -->
+          <div class="lg:col-span-5 bg-surface-container-lowest rounded-xl shadow-sm p-6 space-y-4">
+            <div class="flex items-center gap-2 text-primary font-bold text-sm">
+              <span class="material-symbols-outlined">mark_email_read</span>
+              Daftar Langganan Buletin Transparansi
+            </div>
+            <p class="text-xs text-on-surface-variant">
+              Setiap kali laporan realisasi APBD resmi disahkan dan dipublikasikan, ringkasan eksekutif akan dikirim ke surel Anda.
+            </p>
+
+            <form onsubmit="handleSubscribe(event)" class="space-y-3">
+              <div>
+                <label class="block text-xs font-bold text-on-surface-variant mb-1">Alamat Email Anda <span class="text-error">*</span></label>
+                <input type="email" id="subEmail" required placeholder="nama@instansi.id / warga@gmail.com" class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-xs border border-outline-variant/30 text-on-surface focus:outline-none focus:ring-1 focus:ring-primary" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-on-surface-variant mb-1">Kategori Minat Informasi</label>
+                <div class="space-y-1.5 text-xs text-on-surface">
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" checked class="rounded text-primary focus:ring-0" />
+                    <span>Publikasi APBD Murni & Perubahan</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" checked class="rounded text-primary focus:ring-0" />
+                    <span>Peringatan Serapan Belanja OPD Kritis (&lt; 50%)</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" class="rounded text-primary focus:ring-0" />
+                    <span>Laporan Triwulan dan Catatan Keterbukaan Fiskal</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Kanal WhatsApp (Segera Hadir) -->
+              <div class="p-2.5 rounded-lg bg-surface-container-low opacity-60 text-xs flex items-center justify-between">
+                <span class="flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[18px]">chat</span>
+                  WhatsApp Bot Resmi Pemprov
+                </span>
+                <span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-surface-container-high">Segera Hadir</span>
+              </div>
+
+              <button type="submit" class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-bold text-xs shadow-sm transition-colors">
+                Berlangganan Notifikasi Publik
+              </button>
+
+              <div class="text-[11px] text-on-surface-variant flex items-center gap-1 justify-center pt-2">
+                <span class="material-symbols-outlined text-[14px] text-primary">lock</span>
+                <span>Privasi terjaga. Berhenti berlangganan kapan saja dengan 1 klik.</span>
+              </div>
+            </form>
+          </div>
+
+          <!-- Pratinjau Tampilan Email Digest Kanan (7 Kolom) -->
+          <div class="lg:col-span-7 bg-surface-container-lowest rounded-xl shadow-sm p-6 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+              <span class="text-xs font-bold text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px] text-primary">visibility</span>
+                Pratinjau Format Email yang Diterima Publik
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-surface-container-high">Sistem Otomatis</span>
+            </div>
+
+            <!-- Email Container Frame -->
+            <div class="rounded-xl border border-outline-variant/30 overflow-hidden bg-surface">
+              <!-- Window top bar -->
+              <div class="bg-surface-container-high px-4 py-2 border-b border-outline-variant/20 flex items-center justify-between text-xs text-on-surface-variant">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                  <span class="ml-2 font-mono text-[11px]">Subjek: [Resmi] Pembaruan Data Realisasi APBD Provinsi Lampung Periode Oktober 2026</span>
+                </div>
+              </div>
+
+              <!-- Body Email -->
+              <div class="p-5 space-y-4 text-xs text-on-surface">
+                <div class="flex items-center gap-3 pb-3 border-b border-outline-variant/20">
+                  <img src="./Lampung_coa.png" class="h-8 w-auto" alt="Logo Pemprov" />
+                  <div>
+                    <div class="font-bold text-primary">Pemerintah Provinsi Lampung</div>
+                    <div class="text-[11px] text-on-surface-variant">Bappeda & Badan Pengelolaan Keuangan dan Aset Daerah (BPKAD)</div>
+                  </div>
+                </div>
+
+                <p>Yth. Warga / Mitra Transparansi Fiskal Lampung,</p>
+                <p>Data serapan belanja daerah periode <strong>31 Oktober 2026</strong> telah resmi diverifikasi oleh tim analis dan dipublikasikan ke portal publik.</p>
+
+                <!-- 2 Kartu Metrik Email -->
+                <div class="grid grid-cols-2 gap-3 my-2">
+                  <div class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/20">
+                    <div class="text-[10px] uppercase font-bold text-on-surface-variant">Total Realisasi Belanja</div>
+                    <div class="text-sm font-bold font-mono-num text-primary">Rp 5.748.744.000.000,00</div>
+                    <div class="text-[10px] text-on-surface-variant">70,50% dari total pagu</div>
+                  </div>
+                  <div class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/20">
+                    <div class="text-[10px] uppercase font-bold text-on-surface-variant">Sisa Kas Anggaran</div>
+                    <div class="text-sm font-bold font-mono-num text-secondary">Rp 2.405.506.000.000,00</div>
+                    <div class="text-[10px] text-on-surface-variant">Sisa alokasi belanja</div>
+                  </div>
+                </div>
+
+                <div class="pt-2 text-center">
+                  <button onclick="switchView('beranda')" class="px-4 py-2 rounded-lg bg-primary text-on-primary font-bold text-xs inline-block shadow-sm">
+                    Lihat Data & Rincian Lengkap Portal
+                  </button>
+                </div>
+
+                <div class="pt-4 border-t border-outline-variant/20 text-[10px] text-outline text-center">
+                  Anda menerima email ini karena mendaftarkan surel di portal Transparansi APBD Lampung.
+                  <a href="javascript:showUnsubscribeModal()" class="text-secondary underline ml-1">Berhenti Berlangganan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 5: DASHBOARD INTERNAL ANALIS BAPPEDA (F6) -->
+      <!-- ============================================================== -->
+      <section id="view-internal-bappeda" class="view-panel hidden space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-outline-variant/20">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-bold bg-secondary-fixed text-on-secondary-fixed mb-1">
+              <span class="material-symbols-outlined text-[14px]">shield_person</span>
+              Area Kerja Terbatas • Analis Bappeda
+            </div>
+            <h1 class="text-2xl font-bold font-headline-lg text-on-surface">Konsolidasi Internal & Pemantauan Serapan OPD</h1>
+            <p class="text-sm text-on-surface-variant">
+              Analis: <strong>Rina Noviana, S.E., M.Ec.Dev</strong> (NIP. 198504122010012015) • Status SIPD Kemendagri: <strong>Sinkron</strong>
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="switchView('impor-data')" class="px-3 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-xs font-bold flex items-center gap-1 shadow-sm">
+              <span class="material-symbols-outlined text-[16px]">upload_file</span> Unggah Data Periode Baru
+            </button>
+            <button onclick="switchView('versi')" class="px-3 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">verified</span> Kelola Publikasi
+            </button>
+            <button onclick="switchView('audit-log')" class="px-3 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">history</span> Log Audit
+            </button>
+          </div>
+        </div>
+
+        <!-- 3 Peringatan Cepat Analis -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 rounded-xl bg-error-container/20 border-l-4 border-error flex items-start gap-3">
+            <span class="material-symbols-outlined text-error text-[24px]">crisis_alert</span>
+            <div>
+              <div class="text-xs font-bold text-error uppercase">2 OPD Dalam Status Kritis (&lt; 50%)</div>
+              <div class="text-xs text-on-surface mt-0.5">Dinas Perumahan & Kawasan Permukiman (47,14%), Diskominfotik (45,33%).</div>
+            </div>
+          </div>
+          <div class="p-4 rounded-xl bg-secondary-fixed/30 border-l-4 border-secondary flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary text-[24px]">flag</span>
+            <div>
+              <div class="text-xs font-bold text-secondary uppercase">1 OPD Melebihi Alokasi (102,17%)</div>
+              <div class="text-xs text-on-surface mt-0.5">Satpol PP Provinsi: Realisasi belanja melampaui pagu murni karena pengamanan Pilkada.</div>
+            </div>
+          </div>
+          <div class="p-4 rounded-xl bg-primary/10 border-l-4 border-primary flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary text-[24px]">cloud_done</span>
+            <div>
+              <div class="text-xs font-bold text-primary uppercase">Versi Publikasi Terakhir</div>
+              <div class="text-xs font-mono font-bold text-on-surface mt-0.5">v2.4.0-prod (31 Okt 2026, 17:00 WIB)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabel Peringkat Serapan Seluruh OPD -->
+        <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+          <div class="p-4 border-b border-outline-variant/20 flex items-center justify-between">
+            <h3 class="text-sm font-bold text-on-surface">Peringkat Serapan Anggaran Seluruh Perangkat Daerah (OPD)</h3>
+            <span class="text-xs text-on-surface-variant font-mono">Total: 47 SKPD</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead class="bg-surface-container-low text-on-surface-variant uppercase font-semibold">
+                <tr>
+                  <th class="py-3 px-4">Peringkat</th>
+                  <th class="py-3 px-4">Kode OPD</th>
+                  <th class="py-3 px-4">Nama Perangkat Daerah</th>
+                  <th class="py-3 px-4 text-right">Pagu Alokasi (Rp)</th>
+                  <th class="py-3 px-4 text-right">Realisasi (Rp)</th>
+                  <th class="py-3 px-4 text-center">Persentase</th>
+                  <th class="py-3 px-4 text-center">Status</th>
+                  <th class="py-3 px-4 text-center">Aksi Analis</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-surface-container font-mono-num">
+                <!-- Row 1: Disdik (Optimal) -->
+                <tr class="hover:bg-surface-container-low/40">
+                  <td class="py-3 px-4 font-bold text-primary">#1</td>
+                  <td class="py-3 px-4 text-outline">1.01.00.0.00.01</td>
+                  <td class="py-3 px-4 font-sans font-semibold">Dinas Pendidikan dan Kebudayaan</td>
+                  <td class="py-3 px-4 text-right">2.100.000.000.000,00</td>
+                  <td class="py-3 px-4 text-right text-primary font-bold">1.820.000.000.000,00</td>
+                  <td class="py-3 px-4 text-center font-bold">86,67%</td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-primary/10 text-primary">Optimal</span>
+                  </td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <button class="px-2 py-1 rounded bg-surface-container-low hover:bg-surface-container text-xs">Detail</button>
+                  </td>
+                </tr>
+
+                <!-- Row 2: Dinkes (Optimal) -->
+                <tr class="hover:bg-surface-container-low/40">
+                  <td class="py-3 px-4 font-bold text-primary">#2</td>
+                  <td class="py-3 px-4 text-outline">1.02.00.0.00.01</td>
+                  <td class="py-3 px-4 font-sans font-semibold">Dinas Kesehatan Provinsi Lampung</td>
+                  <td class="py-3 px-4 text-right">1.450.000.000.000,00</td>
+                  <td class="py-3 px-4 text-right text-primary font-bold">1.220.000.000.000,00</td>
+                  <td class="py-3 px-4 text-center font-bold">84,14%</td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-primary/10 text-primary">Optimal</span>
+                  </td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <button class="px-2 py-1 rounded bg-surface-container-low hover:bg-surface-container text-xs">Detail</button>
+                  </td>
+                </tr>
+
+                <!-- Row 3: Bappeda (Optimal) -->
+                <tr class="hover:bg-surface-container-low/40">
+                  <td class="py-3 px-4 font-bold text-primary">#3</td>
+                  <td class="py-3 px-4 text-outline">4.01.00.0.00.01</td>
+                  <td class="py-3 px-4 font-sans font-semibold">Bappeda Provinsi Lampung</td>
+                  <td class="py-3 px-4 text-right">85.000.000.000,00</td>
+                  <td class="py-3 px-4 text-right text-primary font-bold">71.000.000.000,00</td>
+                  <td class="py-3 px-4 text-center font-bold">83,53%</td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-primary/10 text-primary">Optimal</span>
+                  </td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <button class="px-2 py-1 rounded bg-surface-container-low hover:bg-surface-container text-xs">Detail</button>
+                  </td>
+                </tr>
+
+                <!-- Row 4: BMBK (Waspada) -->
+                <tr class="hover:bg-surface-container-low/40">
+                  <td class="py-3 px-4 font-bold text-secondary">#4</td>
+                  <td class="py-3 px-4 text-outline">1.03.00.0.00.01</td>
+                  <td class="py-3 px-4 font-sans font-semibold">Dinas Bina Marga dan Bina Konstruksi</td>
+                  <td class="py-3 px-4 text-right">1.200.000.000.000,00</td>
+                  <td class="py-3 px-4 text-right text-secondary font-bold">870.000.000.000,00</td>
+                  <td class="py-3 px-4 text-center font-bold text-secondary">72,50%</td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-secondary-fixed text-on-secondary-fixed-variant">Waspada</span>
+                  </td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <button class="px-2 py-1 rounded bg-surface-container-low hover:bg-surface-container text-xs">Detail</button>
+                  </td>
+                </tr>
+
+                <!-- Row 5: Satpol PP (Melebihi Alokasi) -->
+                <tr class="hover:bg-surface-container-low/40 bg-secondary-fixed/20">
+                  <td class="py-3 px-4 font-bold text-secondary-container">#5</td>
+                  <td class="py-3 px-4 text-outline">1.05.00.0.00.01</td>
+                  <td class="py-3 px-4 font-sans font-semibold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px] text-secondary">warning</span>
+                    Satuan Polisi Pamong Praja
+                  </td>
+                  <td class="py-3 px-4 text-right">92.000.000.000,00</td>
+                  <td class="py-3 px-4 text-right text-secondary font-bold">94.000.000.000,00</td>
+                  <td class="py-3 px-4 text-center font-bold text-error">102,17%</td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-secondary-container text-on-secondary-container">Lebih Pagu</span>
+                  </td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <button class="px-2 py-1 rounded bg-secondary text-on-secondary text-xs">Kaji Ulang</button>
+                  </td>
+                </tr>
+
+                <!-- Row 6: Perkim (Kritis) -->
+                <tr class="hover:bg-surface-container-low/40 bg-error-container/15">
+                  <td class="py-3 px-4 font-bold text-error">#6</td>
+                  <td class="py-3 px-4 text-outline">1.04.00.0.00.01</td>
+                  <td class="py-3 px-4 font-sans font-semibold text-error flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px] text-error">crisis_alert</span>
+                    Dinas Perumahan & Kawasan Permukiman
+                  </td>
+                  <td class="py-3 px-4 text-right">420.000.000.000,00</td>
+                  <td class="py-3 px-4 text-right text-error font-bold">198.000.000.000,00</td>
+                  <td class="py-3 px-4 text-center font-bold text-error">47,14%</td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-error text-on-error">Kritis</span>
+                  </td>
+                  <td class="py-3 px-4 text-center font-sans">
+                    <button class="px-2 py-1 rounded bg-error text-on-error text-xs">Peringatan</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 6: MODUL IMPOR & VALIDASI DATA (F4) -->
+      <!-- ============================================================== -->
+      <section id="view-impor-data" class="view-panel hidden space-y-6">
+        <div class="pb-2 border-b border-outline-variant/20">
+          <h1 class="text-2xl font-bold font-headline-lg text-on-surface">Unggah & Validasi Berkas Anggaran APBD</h1>
+          <p class="text-sm text-on-surface-variant">
+            Format yang didukung: <strong>CSV</strong> dan <strong>XLSX</strong>. Data yang diunggah otomatis berstatus <strong>DRAFT</strong> dan tidak menimpa data publik sebelum divalidasi.
+          </p>
+        </div>
+
+        <!-- Stepper 3 Tahap -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="p-3.5 rounded-lg bg-primary-fixed flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">1</span>
+            <div>
+              <div class="text-xs font-bold text-primary">Tahap 1: Pilih Berkas</div>
+              <div class="text-[11px] text-on-surface-variant">CSV / Excel Format Bappeda</div>
+            </div>
+          </div>
+          <div class="p-3.5 rounded-lg bg-primary-container text-on-primary flex items-center gap-3 shadow-sm">
+            <span class="w-7 h-7 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center text-xs font-bold">2</span>
+            <div>
+              <div class="text-xs font-bold">Tahap 2: Validasi Format & Integritas</div>
+              <div class="text-[11px] text-on-primary-container">Pemeriksaan Baris & Jumlah Induk</div>
+            </div>
+          </div>
+          <div class="p-3.5 rounded-lg bg-surface-container-low flex items-center gap-3 opacity-75">
+            <span class="w-7 h-7 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center text-xs font-bold">3</span>
+            <div>
+              <div class="text-xs font-bold text-on-surface">Tahap 3: Simpan Draft</div>
+              <div class="text-[11px] text-on-surface-variant">Penetapan Hash SHA-256</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropzone Unggahan -->
+        <div class="bg-surface-container-lowest rounded-xl shadow-sm p-6 space-y-4">
+          <div class="outline-dashed outline-2 -outline-offset-2 outline-outline-variant hover:outline-primary-container bg-surface-container-low/70 rounded-xl p-8 text-center relative cursor-pointer transition-colors" onclick="simulateFileUpload()">
+            <div class="w-16 h-16 rounded-full bg-primary/10 text-primary mx-auto flex items-center justify-center mb-3">
+              <span class="material-symbols-outlined text-[32px]">cloud_upload</span>
+            </div>
+            <h3 class="text-sm font-bold text-on-surface">Tarik & Letakkan Berkas Anggaran di Sini</h3>
+            <p class="text-xs text-on-surface-variant mt-1">atau klik untuk memilih file dari komputer (CSV, XLSX maks. 25MB)</p>
+            <div class="mt-4 flex items-center justify-center gap-2">
+              <span class="px-2.5 py-1 rounded bg-surface-container-high text-[11px] font-mono text-on-surface-variant">Format: SIPD-Kemendagri-Lampung-2026.csv</span>
+              <button type="button" class="px-3 py-1 rounded bg-primary text-on-primary text-xs font-bold">Pilih File</button>
+            </div>
+          </div>
+
+          <!-- Banner Simulasi Validasi Galat (Merah #FEE2E2 sesuai Skill) -->
+          <div class="p-4 rounded-xl bg-secondary-container/20 border border-secondary/30 flex items-start justify-between gap-3">
+            <div class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">report</span>
+              <div>
+                <h4 class="text-xs font-bold text-on-surface">Hasil Pemeriksaan Berkas: Ditemukan 1 Galat Validasi Matematis</h4>
+                <p class="text-xs text-on-surface-variant mt-0.5">
+                  Berkas terdeteksi memiliki 1 baris di mana jumlah akumulasi sub kegiatan tidak sesuai dengan nilai kegiatan induk. Anda harus memperbaiki berkas sebelum dapat menyimpan draft.
+                </p>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-error text-on-error shrink-0">1 Galat Kritis</span>
+          </div>
+
+          <!-- Tabel Validasi Baris Berkas (Galat #FEE2E2 vs Valid) -->
+          <div class="rounded-xl border border-outline-variant/30 overflow-hidden text-xs">
+            <table class="w-full text-left border-collapse">
+              <thead class="bg-surface-container-low text-on-surface-variant uppercase font-semibold">
+                <tr>
+                  <th class="py-2.5 px-3 w-16">Baris</th>
+                  <th class="py-2.5 px-3">Kode Rekening</th>
+                  <th class="py-2.5 px-3">Uraian Akun</th>
+                  <th class="py-2.5 px-3 text-right">Alokasi (Rp)</th>
+                  <th class="py-2.5 px-3 text-right">Realisasi (Rp)</th>
+                  <th class="py-2.5 px-3 text-center">Status Validasi</th>
+                  <th class="py-2.5 px-3">Catatan Verifikasi</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-surface-container font-mono-num">
+                <!-- Baris 1: Valid -->
+                <tr class="bg-surface-container-lowest">
+                  <td class="py-2.5 px-3 text-outline">102</td>
+                  <td class="py-2.5 px-3">1.03.01.2.01.0001</td>
+                  <td class="py-2.5 px-3 font-sans">Rekonstruksi Jalan Ruas Simpang Ryacudu</td>
+                  <td class="py-2.5 px-3 text-right">500.000.000.000,00</td>
+                  <td class="py-2.5 px-3 text-right text-primary">400.000.000.000,00</td>
+                  <td class="py-2.5 px-3 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-bold text-[10px]">Valid</span>
+                  </td>
+                  <td class="py-2.5 px-3 font-sans text-[11px] text-on-surface-variant">Sesuai pagu DPA.</td>
+                </tr>
+
+                <!-- Baris 2: Galat (Sesuai panduan Skill: latar #FEE2E2 + badge Galat) -->
+                <tr class="bg-[#FEE2E2]">
+                  <td class="py-2.5 px-3 font-bold text-error">103</td>
+                  <td class="py-2.5 px-3 font-bold text-error">1.03.01.2.01.0002</td>
+                  <td class="py-2.5 px-3 font-sans font-bold text-on-surface">Peningkatan Kapasitas Jalan Koridor</td>
+                  <td class="py-2.5 px-3 text-right font-bold text-error">350.000.000.000,00</td>
+                  <td class="py-2.5 px-3 text-right font-bold text-error">-15.000.000.000,00</td>
+                  <td class="py-2.5 px-3 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded bg-error text-on-error font-bold text-[10px]">Galat</span>
+                  </td>
+                  <td class="py-2.5 px-3 font-sans text-[11px] text-error font-medium flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">close</span>
+                    Realisasi bernilai negatif (Dilarang dalam PRD Bagian 8.3).
+                  </td>
+                </tr>
+
+                <!-- Baris 3: Valid -->
+                <tr class="bg-surface-container-lowest">
+                  <td class="py-2.5 px-3 text-outline">104</td>
+                  <td class="py-2.5 px-3">1.03.01.2.02.0001</td>
+                  <td class="py-2.5 px-3 font-sans">Rehabilitasi Jembatan Way Sekampung</td>
+                  <td class="py-2.5 px-3 text-right">350.000.000.000,00</td>
+                  <td class="py-2.5 px-3 text-right text-primary">232.500.000.000,00</td>
+                  <td class="py-2.5 px-3 text-center font-sans">
+                    <span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-bold text-[10px]">Valid</span>
+                  </td>
+                  <td class="py-2.5 px-3 font-sans text-[11px] text-on-surface-variant">Sesuai pagu DPA.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Tombol Aksi Simpan Draft (Nonaktif selama masih ada galat kritis) -->
+          <div class="pt-2 flex items-center justify-between">
+            <div class="text-xs text-on-surface-variant flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px] text-error">lock</span>
+              <span>Tombol simpan draft dinonaktifkan karena berkas memuat baris galat kritis.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="fixSimulationRow()" class="px-3 py-2 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-bold text-xs">
+                Perbaiki Otomatis Baris 103 (Simulasi)
+              </button>
+              <button id="btnSaveDraft" disabled class="px-4 py-2 rounded-lg bg-surface-container text-outline-variant cursor-not-allowed font-bold text-xs flex items-center gap-1.5 transition-colors">
+                <span class="material-symbols-outlined text-[16px]">save</span>
+                Simpan sebagai Versi Draft
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 7: VERSI & PUBLIKASI DATA (F5) -->
+      <!-- ============================================================== -->
+      <section id="view-versi" class="view-panel hidden space-y-6">
+        <div class="pb-2 border-b border-outline-variant/20">
+          <h1 class="text-2xl font-bold font-headline-lg text-on-surface">Manajemen Versi & Siklus Publikasi Data APBD</h1>
+          <p class="text-sm text-on-surface-variant">
+            Alur status: <strong>Draft</strong> → <strong>Published</strong> → <strong>Retracted</strong>. Maksimal satu versi terpublikasi aktif per tahun anggaran.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- KARTU 1: Versi Terpublikasi Saat Ini (Published) -->
+          <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+            <div class="h-1.5 bg-primary"></div>
+            <div class="p-6">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-outline-variant/20">
+                <div class="flex items-center gap-3">
+                  <span class="font-mono font-bold text-lg text-primary">v2.4.0-prod</span>
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    PUBLISHED (Aktif ke Publik)
+                  </span>
+                </div>
+                <div class="text-xs text-on-surface-variant font-mono">
+                  Dipublikasikan: 31 Okt 2026, 17:00:12 WIB
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4 text-xs">
+                <div>
+                  <div class="text-on-surface-variant">Dipublikasikan Oleh:</div>
+                  <div class="font-bold text-on-surface">Drs. H. Hendra Wijaya (Admin Bappeda)</div>
+                </div>
+                <div>
+                  <div class="text-on-surface-variant">Cakupan Data:</div>
+                  <div class="font-bold text-on-surface">APBD Provinsi Lampung s.d. Oktober 2026</div>
+                </div>
+                <div>
+                  <div class="text-on-surface-variant">Integritas Berkas (SHA-256):</div>
+                  <div class="font-mono text-outline flex items-center gap-1 mt-0.5">
+                    <span>a7f8e34c9...12e09b</span>
+                    <button onclick="copyHash('a7f8e34c9d8112e09b98214fa450d001')" title="Salin hash lengkap" class="hover:text-primary">
+                      <span class="material-symbols-outlined text-[14px]">content_copy</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Aksi Admin Bappeda: Penarikan Data (Retract) -->
+              <div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+                <span class="text-xs text-on-surface-variant">
+                  Jika ditemukan ketidakcocokan audit, admin dapat menarik publikasi ini kembali ke status retracted.
+                </span>
+                <button onclick="openRetractModal()" class="px-3.5 py-2 rounded-lg bg-error hover:bg-red-700 text-on-error font-bold text-xs flex items-center gap-1.5 shadow-sm transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">undo</span>
+                  Tarik Kembali Data Ini (Retract)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- KARTU 2: Versi Draft Baru (Menunggu Persetujuan Publikasi) -->
+          <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+            <div class="h-1.5 bg-secondary-container"></div>
+            <div class="p-6">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-outline-variant/20">
+                <div class="flex items-center gap-3">
+                  <span class="font-mono font-bold text-lg text-on-surface">v2.5.0-draft</span>
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary-fixed text-on-secondary-fixed">
+                    DRAFT (Hasil Unggahan Analis)
+                  </span>
+                </div>
+                <div class="text-xs text-on-surface-variant font-mono">
+                  Dibuat: 10 Nov 2026, 09:15:00 WIB
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4 text-xs">
+                <div>
+                  <div class="text-on-surface-variant">Pengunggah:</div>
+                  <div class="font-bold text-on-surface">Rina Noviana, S.E. (Analis Bappeda)</div>
+                </div>
+                <div>
+                  <div class="text-on-surface-variant">Uraian Pembaruan:</div>
+                  <div class="font-bold text-on-surface">Konsolidasi SP2D Tambahan Awal November 2026</div>
+                </div>
+                <div>
+                  <div class="text-on-surface-variant">Hash Berkas (SHA-256):</div>
+                  <div class="font-mono text-outline">f91c80b2...77d4a1</div>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+                <span class="text-xs text-on-surface-variant">
+                  Memerlukan otorisasi Admin Bappeda untuk mempublikasikan versi draft ke portal publik.
+                </span>
+                <button onclick="openPublishModal()" class="px-3.5 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-bold text-xs flex items-center gap-1.5 shadow-sm transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">publish</span>
+                  Otorisasi & Publikasikan ke Publik
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- KARTU 3: Versi Ditarik (Retracted / Revoked) -->
+          <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden opacity-80">
+            <div class="h-1.5 bg-error"></div>
+            <div class="p-6">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-outline-variant/20">
+                <div class="flex items-center gap-3">
+                  <span class="font-mono font-bold text-lg line-through text-error">v2.3.0-prod</span>
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container text-on-error-container">
+                    RETRACTED (DITARIK KEMBALI)
+                  </span>
+                </div>
+                <div class="text-xs text-error font-mono font-semibold">
+                  Alasan: Rekonsiliasi SP2D Hibah Pilkada Dinas PMD
+                </div>
+              </div>
+              <p class="text-xs text-on-surface-variant mt-3">
+                Versi ini ditarik pada 28 Oktober 2026 oleh Admin Bappeda. Data publik dikembalikan ke versi v2.2.0 sebelumnya secara otomatis tanpa downtime.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 8: AUDIT LOG APPEND-ONLY (F8) -->
+      <!-- ============================================================== -->
+      <section id="view-audit-log" class="view-panel hidden space-y-6">
+        <div class="pb-2 border-b border-outline-variant/20">
+          <h1 class="text-2xl font-bold font-headline-lg text-on-surface">Jejak Audit & Integritas Sistem (Append-Only)</h1>
+          <p class="text-sm text-on-surface-variant">
+            Sesuai standar PRD Bagian 7 & 8: Seluruh riwayat perubahan tercatat secara permanen tanpa hak akses edit atau hapus bagi peran apa pun.
+          </p>
+        </div>
+
+        <!-- Banner Merkle Root & Kriptografi Integritas -->
+        <div class="p-4 rounded-xl bg-primary text-on-primary flex flex-col md:flex-row md:items-center justify-between gap-3 shadow-sm">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[28px] text-primary-fixed">lock</span>
+            <div>
+              <div class="font-bold text-sm">Log Sistem Bersifat Append-Only & Terverifikasi</div>
+              <div class="text-xs text-on-primary/80 font-mono mt-0.5">Merkle Root: 7a9c1e028fdb728a410cde...38a29b</div>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 rounded bg-primary-container text-xs font-mono font-bold text-primary-fixed">
+            STATUS: INTEGRITY VERIFIED
+          </span>
+        </div>
+
+        <!-- Tabel Log Audit -->
+        <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+          <div class="p-4 border-b border-outline-variant/20 flex flex-wrap items-center justify-between gap-2 text-xs">
+            <span class="font-bold text-on-surface">Riwayat Peristiwa Keamanan & Operasional Data</span>
+            <div class="flex items-center gap-2">
+              <span class="text-on-surface-variant">Filter Aksi:</span>
+              <select class="px-2 py-1 rounded bg-surface-container-low text-xs border border-outline-variant/30">
+                <option>Semua Aksi</option>
+                <option>PUBLISH_VERSION</option>
+                <option>RETRACT_VERSION</option>
+                <option>UPLOAD_FILE</option>
+                <option>AUTH_LOGIN</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead class="bg-surface-container-low text-on-surface-variant uppercase font-semibold">
+                <tr>
+                  <th class="py-3 px-3">Waktu (WIB / UTC)</th>
+                  <th class="py-3 px-3">Aktor & IP</th>
+                  <th class="py-3 px-3">Aksi</th>
+                  <th class="py-3 px-3">Entitas</th>
+                  <th class="py-3 px-3">Ringkasan Perubahan (Sebelum → Sesudah)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-surface-container font-mono-num">
+                <!-- Log 1: Publikasi v2.4.0 -->
+                <tr class="hover:bg-surface-container-low/40">
+                  <td class="py-3 px-3">
+                    <div class="font-bold text-on-surface">31 Okt 2026, 17:00:12 WIB</div>
+                    <div class="text-[10px] text-outline">2026-10-31T10:00:12Z</div>
+                  </td>
+                  <td class="py-3 px-3">
+                    <div class="font-sans font-bold">Admin Bappeda (Hendra)</div>
+                    <div class="text-[10px] text-outline">103.14.22.84</div>
+                  </td>
+                  <td class="py-3 px-3 font-sans">
+                    <span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-bold text-[10px]">PUBLISH_VERSION</span>
+                  </td>
+                  <td class="py-3 px-3 font-sans">versi_data (v2.4.0-prod)</td>
+                  <td class="py-3 px-3 font-sans">
+                    <span class="line-through text-outline">draft</span> → <span class="font-bold text-primary">published</span> (Tampil ke publik)
+                  </td>
+                </tr>
+
+                <!-- Log 2: Penarikan Data (Retract Baris Merah sesuai Skill) -->
+                <tr class="bg-error-container/35 border-l-4 border-error">
+                  <td class="py-3 px-3">
+                    <div class="font-bold text-on-surface">28 Okt 2026, 14:22:05 WIB</div>
+                    <div class="text-[10px] text-outline">2026-10-28T07:22:05Z</div>
+                  </td>
+                  <td class="py-3 px-3">
+                    <div class="font-sans font-bold text-error">Admin Bappeda (Hendra)</div>
+                    <div class="text-[10px] text-outline">103.14.22.84</div>
+                  </td>
+                  <td class="py-3 px-3 font-sans">
+                    <span class="px-2 py-0.5 rounded bg-error text-on-error font-bold text-[10px]">RETRACT_VERSION</span>
+                  </td>
+                  <td class="py-3 px-3 font-sans">versi_data (v2.3.0-prod)</td>
+                  <td class="py-3 px-3 font-sans text-error font-medium">
+                    <span class="line-through text-on-surface-variant">published</span> → <strong class="text-error">retracted</strong>. Alasan: Koreksi rekonsiliasi SP2D PMD.
+                  </td>
+                </tr>
+
+                <!-- Log 3: Unggah Berkas -->
+                <tr class="hover:bg-surface-container-low/40">
+                  <td class="py-3 px-3">
+                    <div class="font-bold text-on-surface">28 Okt 2026, 09:12:44 WIB</div>
+                    <div class="text-[10px] text-outline">2026-10-28T02:12:44Z</div>
+                  </td>
+                  <td class="py-3 px-3">
+                    <div class="font-sans font-bold">Analis Bappeda (Rina)</div>
+                    <div class="text-[10px] text-outline">103.14.22.90</div>
+                  </td>
+                  <td class="py-3 px-3 font-sans">
+                    <span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-bold text-[10px]">UPLOAD_FILE</span>
+                  </td>
+                  <td class="py-3 px-3 font-sans">impor_berkas</td>
+                  <td class="py-3 px-3 font-sans">
+                    Unggah <span class="font-mono">realisasi-okt-v1.csv</span> (Hash: a7f8e34...) Status: Valid
+                  </td>
+                </tr>
+
+                <!-- Log 4: Login Analis -->
+                <tr class="hover:bg-surface-container-low/40">
+                  <td class="py-3 px-3">
+                    <div class="font-bold text-on-surface">28 Okt 2026, 08:30:10 WIB</div>
+                    <div class="text-[10px] text-outline">2026-10-28T01:30:10Z</div>
+                  </td>
+                  <td class="py-3 px-3">
+                    <div class="font-sans font-bold">Analis Bappeda (Rina)</div>
+                    <div class="text-[10px] text-outline">103.14.22.90</div>
+                  </td>
+                  <td class="py-3 px-3 font-sans">
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold text-[10px]">AUTH_LOGIN</span>
+                  </td>
+                  <td class="py-3 px-3 font-sans">pengguna (rina@bappeda.lampungprov.go.id)</td>
+                  <td class="py-3 px-3 font-sans">
+                    Verifikasi Argon2id berhasil. Sesi diterbitkan.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Catatan append-only tanpa tombol edit/hapus -->
+          <div class="p-3 bg-surface-container-low text-outline text-[11px] text-center border-t border-outline-variant/30">
+            Log tabel ini terkunci dalam mode append-only sesuai spesifikasi FR8.3. Tidak tersedia aksi modifikasi atau penghapusan record.
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 9: STATUS KOSONG / EMPTY STATE (Data Belum Tersedia) -->
+      <!-- ============================================================== -->
+      <section id="view-empty-state" class="view-panel hidden space-y-6">
+        <div class="max-w-2xl mx-auto bg-surface-container-lowest rounded-2xl shadow-sm p-8 md:p-12 text-center overflow-hidden relative border border-outline-variant/20">
+          <div class="h-1.5 absolute top-0 left-0 right-0 bg-gradient-to-r from-primary to-secondary-container"></div>
+          
+          <div class="w-16 h-16 rounded-full bg-surface-container-low text-primary mx-auto flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-[36px]">folder_open</span>
+          </div>
+
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-secondary-fixed text-on-secondary-fixed">
+            Tahun Anggaran 2027
+          </span>
+
+          <h2 class="text-2xl font-bold font-headline-lg text-on-surface mt-3">Data Belum Tersedia</h2>
+          <p class="text-xs md:text-sm text-on-surface-variant max-w-md mx-auto mt-2">
+            Belum ada data anggaran yang dipublikasikan untuk tahun anggaran ini. Periksa kembali secara berkala setelah tahapan penetapan Perda APBD rampung.
+          </p>
+
+          <!-- Timeline 3 Fase Penetapan (Sesuai panduan Skill) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 my-8 text-left text-xs">
+            <div class="p-3 rounded-lg bg-primary-fixed/40 border border-primary/20">
+              <div class="font-bold text-primary flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">check</span> Fase 1: KUA-PPAS
+              </div>
+              <div class="text-[11px] text-on-surface-variant mt-1">Disepakati Pemda & DPRD.</div>
+            </div>
+            <div class="p-3 rounded-lg bg-secondary-fixed/50 border border-secondary/30">
+              <div class="font-bold text-secondary flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">hourglass_top</span> Fase 2: Evaluasi
+              </div>
+              <div class="text-[11px] text-on-surface-variant mt-1">Evaluasi Kemendagri RI.</div>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-low">
+              <div class="font-bold text-outline flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">schedule</span> Fase 3: Rilis
+              </div>
+              <div class="text-[11px] text-on-surface-variant mt-1">Estimasi rilis data resmi.</div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <button onclick="switchView('beranda')" class="px-4 py-2.5 rounded-lg bg-primary text-on-primary text-xs font-bold shadow-sm">
+              Kembali ke APBD 2026 (Aktif)
+            </button>
+            <button onclick="switchView('notifikasi-publik')" class="px-4 py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-xs font-semibold text-on-surface">
+              Berlangganan Notifikasi Rilis
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 10: STATUS GANGGUAN / ERROR STATE (MURNI KUALITATIF - NO NUMBERS) -->
+      <!-- ============================================================== -->
+      <section id="view-error-state" class="view-panel hidden space-y-6">
+        <div class="max-w-xl mx-auto bg-surface-container-lowest rounded-2xl shadow-sm p-8 md:p-12 text-center border border-outline-variant/20">
+          
+          <div class="w-16 h-16 rounded-full bg-error-container text-error mx-auto flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-[36px]">cloud_off</span>
+          </div>
+
+          <h2 class="text-2xl font-bold font-headline-lg text-on-surface">Layanan Tidak Tersedia Saat Ini</h2>
+          
+          <!-- ATURAN KERAS SKILL BAGIAN 7: MURNI KUALITATIF TANPA ANGKA APA PUN -->
+          <p class="text-sm text-on-surface-variant max-w-md mx-auto mt-2 leading-relaxed">
+            Kami sedang mengalami kendala sementara saat menghubungkan ke pusat data keuangan daerah. Tim teknis sedang menangani kendala ini agar layanan publik dapat kembali diakses secara normal.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button onclick="switchView('beranda')" class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-bold text-xs shadow-sm transition-colors">
+              Coba Kembali
+            </button>
+            <button onclick="showToast('Status server pusat: Sedang dalam penanganan teknis')" class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-semibold text-xs transition-colors">
+              Periksa Status Server
+            </button>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-outline-variant/20 text-xs text-outline">
+            Pusat Pengaduan & Layanan IT: Diskominfotik Pemerintah Provinsi Lampung
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 11: LAYAR LOGIN SPLIT-SCREEN (5:7) (F6) -->
+      <!-- ============================================================== -->
+      <section id="view-login" class="view-panel hidden space-y-6">
+        <div class="max-w-4xl mx-auto bg-surface-container-lowest rounded-2xl shadow-lg overflow-hidden border border-outline-variant/30 grid grid-cols-1 lg:grid-cols-12 min-h-[500px]">
+          
+          <!-- Kolom Formulir Kiri (5 Kolom) -->
+          <div class="lg:col-span-5 p-8 flex flex-col justify-between">
+            <div>
+              <!-- Co-Branding Pemda + UTI -->
+              <div class="flex items-center gap-3 mb-6">
+                <img src="./Lampung_coa.png" class="h-8 w-auto" alt="Pemprov Lampung" />
+                <img src="./UNIVERSITASTEKNOKRAT.png" class="h-8 w-auto" alt="Teknokrat" />
+              </div>
+
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary uppercase tracking-wider">
+                Akses Analis & Pengelola APBD
+              </span>
+
+              <h2 class="text-xl font-bold font-headline-lg text-on-surface mt-2">Masuk ke Portal Internal</h2>
+              <p class="text-xs text-on-surface-variant mt-1">
+                Gunakan kredensial resmi ASN Bappeda atau Operator OPD Anda.
+              </p>
+
+              <form onsubmit="handleLogin(event)" class="mt-6 space-y-4">
+                <div>
+                  <label class="block text-xs font-bold text-on-surface-variant mb-1">Email Kedinasan</label>
+                  <input type="email" id="loginEmail" required value="rina.noviana@bappeda.lampungprov.go.id" class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-xs border border-outline-variant/30 text-on-surface focus:outline-none focus:ring-1 focus:ring-primary font-mono" />
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-on-surface-variant mb-1">Kata Sandi</label>
+                  <div class="relative">
+                    <input type="password" id="loginPassword" required value="••••••••••••" class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-xs border border-outline-variant/30 text-on-surface focus:outline-none focus:ring-1 focus:ring-primary" />
+                    <button type="button" onclick="togglePasswordVisibility()" class="absolute right-2.5 top-2 text-outline hover:text-on-surface">
+                      <span id="passIcon" class="material-symbols-outlined text-[16px]">visibility</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs">
+                  <label class="flex items-center gap-1.5 text-on-surface-variant">
+                    <input type="checkbox" checked class="rounded text-primary focus:ring-0" />
+                    <span>Ingat sesi saya</span>
+                  </label>
+                  <a href="javascript:showToast('Silakan hubungi Administrator Pusdatin Bappeda untuk reset akun')" class="text-secondary hover:underline">Lupa sandi?</a>
+                </div>
+
+                <button type="submit" class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-bold text-xs shadow-sm transition-colors flex items-center justify-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px]">lock_open</span>
+                  Masuk Sistem
+                </button>
+              </form>
+            </div>
+
+            <div class="pt-6 text-[11px] text-outline">
+              Dilindungi enkripsi kata sandi Argon2id & pembatasan akses server-side.
+            </div>
+          </div>
+
+          <!-- Kolom Visual Kanan (7 Kolom - Nuansa Hijau & Emas) -->
+          <div class="lg:col-span-7 bg-primary text-on-primary p-8 flex flex-col justify-between relative overflow-hidden">
+            <!-- Background Motif / Glow -->
+            <div class="absolute -right-10 -bottom-10 w-72 h-72 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 flex items-center justify-between">
+              <span class="text-xs font-bold text-primary-fixed uppercase tracking-wider">SIPD Terintegrasi</span>
+              <div class="flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-primary-fixed animate-ping"></span>
+                <span class="text-xs font-mono text-primary-fixed">Koneksi Aman</span>
+              </div>
+            </div>
+
+            <div class="relative z-10 my-auto py-8">
+              <div class="text-xl md:text-2xl font-bold font-headline-lg leading-snug">
+                "Transparansi fiskal adalah jembatan kepercayaan antara pemerintah dan masyarakat."
+              </div>
+              <p class="text-xs text-on-primary/80 mt-3 leading-relaxed">
+                Platform pengawasan terpadu realisasi APBD Provinsi Lampung bekerja sama dengan Universitas Teknokrat Indonesia. Mengawal akuntabilitas setiap rupiah anggaran pembangunan daerah.
+              </p>
+
+              <!-- 3 Metrik Kecil -->
+              <div class="grid grid-cols-3 gap-3 mt-6 pt-6 border-t border-primary-fixed/20">
+                <div>
+                  <div class="text-lg font-bold font-mono-num text-primary-fixed">47</div>
+                  <div class="text-[10px] text-on-primary/70">Perangkat Daerah</div>
+                </div>
+                <div>
+                  <div class="text-lg font-bold font-mono-num text-secondary-container">100%</div>
+                  <div class="text-[10px] text-on-primary/70">Akurasi Desimal</div>
+                </div>
+                <div>
+                  <div class="text-lg font-bold font-mono-num text-primary-fixed">0.1s</div>
+                  <div class="text-[10px] text-on-primary/70">Latensi Respon</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative z-10 flex items-center justify-between text-[11px] text-on-primary/60 border-t border-primary-fixed/20 pt-4">
+              <span>Standar Keamanan Audit BPK-RI</span>
+              <span>BSSN Certified Architecture</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- MODAL: KONFIRMASI PUBLIKASI DATA (F5) -->
+  <!-- ============================================================== -->
+  <div id="modalPublish" class="hidden fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-surface-container-lowest rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-outline-variant/30">
+      <div class="h-1.5 bg-primary"></div>
+      <div class="p-6">
+        <div class="flex items-center gap-3 text-primary mb-3">
+          <span class="material-symbols-outlined text-[28px]">verified</span>
+          <h3 class="font-bold text-base text-on-surface">Konfirmasi Otorisasi Publikasi</h3>
+        </div>
+        <p class="text-xs text-on-surface-variant leading-relaxed">
+          Anda akan mempublikasikan data <strong>v2.5.0-draft</strong> ke portal publik. Seluruh pengunjung publik akan langsung melihat data ini sebagai versi resmi APBD Provinsi Lampung.
+        </p>
+        <div class="my-4 p-3 rounded-lg bg-surface-container-low text-xs space-y-1 font-mono">
+          <div class="flex justify-between">
+            <span class="text-outline">Versi:</span>
+            <span class="font-bold text-primary">v2.5.0-prod</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-outline">Hash:</span>
+            <span class="text-outline">f91c80b2...77d4a1</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-outline">Pemicu:</span>
+            <span>Broadcast Notifikasi Publik</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button onclick="closePublishModal()" class="px-4 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-xs font-semibold">Batal</button>
+          <button onclick="executePublish()" class="px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-xs font-bold shadow-sm">Ya, Publikasikan Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- MODAL: PENARIKAN DATA / RETRACT (F5 - Alasan Wajib) -->
+  <!-- ============================================================== -->
+  <div id="modalRetract" class="hidden fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-surface-container-lowest rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border border-outline-variant/30">
+      <div class="h-1.5 bg-error"></div>
+      <div class="p-6">
+        <div class="flex items-center gap-3 text-error mb-3">
+          <span class="material-symbols-outlined text-[28px]">warning</span>
+          <h3 class="font-bold text-base text-on-surface">Konfirmasi Penarikan Data Publik</h3>
+        </div>
+        <p class="text-xs text-on-surface-variant leading-relaxed">
+          Tindakan ini akan menarik versi <strong>v2.4.0-prod</strong> dari portal publik dan mengembalikan tampilan publik ke versi sebelumnya.
+        </p>
+        <div class="my-4">
+          <label class="block text-xs font-bold text-on-surface mb-1">
+            Alasan Penarikan Data (Wajib Diisi untuk Audit Log) <span class="text-error">*</span>
+          </label>
+          <textarea id="retractReason" rows="3" placeholder="Contoh: Terdapat ketidakcocokan nilai SP2D pada Dinas Bina Marga..." class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-xs border border-outline-variant/30 focus:outline-none focus:ring-1 focus:ring-error text-on-surface"></textarea>
+        </div>
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button onclick="closeRetractModal()" class="px-4 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-xs font-semibold">Batal</button>
+          <button onclick="executeRetract()" class="px-4 py-2 rounded-lg bg-error hover:bg-red-700 text-on-error text-xs font-bold shadow-sm">Tarik Data Resmi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- MODAL: UNREGISTER / BERHENTI LANGGANAN (F7) -->
+  <!-- ============================================================== -->
+  <div id="modalUnsub" class="hidden fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-surface-container-lowest rounded-2xl shadow-2xl max-w-sm w-full p-6 text-center border border-outline-variant/30">
+      <div class="w-12 h-12 rounded-full bg-error-container text-error mx-auto flex items-center justify-center mb-3">
+        <span class="material-symbols-outlined">unsubscribe</span>
+      </div>
+      <h3 class="font-bold text-sm text-on-surface">Berhenti Berlangganan Surel?</h3>
+      <p class="text-xs text-on-surface-variant mt-1">Anda tidak akan lagi menerima pemberitahuan otomatis saat data realisasi APBD diperbarui.</p>
+      <div class="flex items-center justify-center gap-2 mt-5">
+        <button onclick="closeUnsubModal()" class="px-3 py-2 rounded-lg bg-surface-container-low text-xs font-semibold">Batal</button>
+        <button onclick="confirmUnsub()" class="px-3 py-2 rounded-lg bg-error text-on-error text-xs font-bold">Ya, Hentikan Langganan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFIKASI INTERAKTIF (Fixed Bottom Right) -->
+  <div id="toastNotification" class="hidden fixed bottom-6 right-6 z-50 max-w-sm bg-surface-container-lowest text-on-surface p-4 rounded-xl shadow-xl border-l-4 border-primary flex items-start gap-3 transition-transform">
+    <span id="toastIcon" class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">check_circle</span>
+    <div class="flex-1 text-xs">
+      <div id="toastTitle" class="font-bold">Notifikasi Sistem</div>
+      <div id="toastMessage" class="text-on-surface-variant mt-0.5">Aksi berhasil dilakukan.</div>
+    </div>
+    <button onclick="hideToast()" class="text-outline hover:text-on-surface">
+      <span class="material-symbols-outlined text-[16px]">close</span>
+    </button>
+  </div>
+
+  <!-- BOTTOM NAVIGATION UNTUK MOBILE (Fixed h-16 Sesuai Skill 5b) -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md border-t border-outline-variant/30 flex items-center justify-around z-40 px-2 pb-safe">
+    <button onclick="switchView('beranda')" class="flex flex-col items-center justify-center min-w-[56px] h-12 text-primary">
+      <span class="material-symbols-outlined text-[20px]">dashboard</span>
+      <span class="text-[10px] font-semibold">Ringkasan</span>
+    </button>
+    <button onclick="switchView('realisasi')" class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant">
+      <span class="material-symbols-outlined text-[20px]">account_balance</span>
+      <span class="text-[10px] font-semibold">SKPD</span>
+    </button>
+    <button onclick="switchView('pencarian')" class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant">
+      <span class="material-symbols-outlined text-[20px]">search</span>
+      <span class="text-[10px] font-semibold">Pencarian</span>
+    </button>
+    <button onclick="switchView('internal-bappeda')" class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant">
+      <span class="material-symbols-outlined text-[20px]">shield_person</span>
+      <span class="text-[10px] font-semibold">Analis</span>
+    </button>
+  </nav>
+
+  <!-- ============================================================== -->
+  <!-- FOOTER STATIS INSTITUSIONAL (WAJIB SESUAI PRD F9 & SKILL BAGIAN 4) -->
+  <!-- ============================================================== -->
+  <footer class="bg-surface-container-low border-t border-outline-variant/30 py-8 px-4 md:px-margin text-xs text-on-surface-variant">
+    <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <!-- Logo dan Keterangan Mitra -->
+      <div class="flex items-center gap-3 text-center md:text-left">
+        <img src="./Lampung_coa.png" class="h-8 w-auto opacity-80" alt="Pemprov Lampung" />
+        <img src="./UNIVERSITASTEKNOKRAT.png" class="h-8 w-auto opacity-80" alt="Teknokrat" />
+        <div>
+          <div class="font-bold text-on-surface">Portal Keterbukaan Informasi Publik Pemerintah Provinsi Lampung</div>
+          <div>Bekerjasama dengan Program Studi Informatika & Sistem Informasi Universitas Teknokrat Indonesia</div>
+        </div>
+      </div>
+
+      <!-- Teks Hak Cipta Statis Persis Sesuai Ketentuan Dokumen PRD F9.2 -->
+      <div class="text-center md:text-right">
+        <div class="font-semibold text-on-surface">
+          Copyright © 2026 by Rafly Iqbal Maulana dan Dr. Erliyan Redy Susanto, M.Kom
+        </div>
+        <div class="text-[11px] text-outline mt-0.5">
+          APBD Smart City Transparency System • Sesuai Permendagri No. 77/2020 & UU No. 14/2008
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================== -->
+  <!-- LOGIKA JAVASCRIPT LENGKAP & INTERAKTIF -->
+  <!-- ============================================================== -->
+  <script>
+    // DATA MOCK PROGRAM APBD PROVINSI LAMPUNG
+    const budgetData = [
+      {
+        kode: "1.01.01.2.01",
+        nama: "Pengelolaan Dana BOS Daerah & Sarana Prasarana SMA/SMK Negeri",
+        opd: "Dinas Pendidikan dan Kebudayaan",
+        opdKey: "disdik",
+        belanja: "operasional",
+        pagu: 2100000000000,
+        realisasi: 1820000000000,
+        status: "optimal",
+        persen: 86.67
+      },
+      {
+        kode: "1.02.01.2.01",
+        nama: "Penyediaan Fasilitas Pelayanan Kesehatan untuk UKM dan UKP Rujukan",
+        opd: "Dinas Kesehatan",
+        opdKey: "dinkes",
+        belanja: "modal",
+        pagu: 1450000000000,
+        realisasi: 1220000000000,
+        status: "optimal",
+        persen: 84.14
+      },
+      {
+        kode: "1.03.01.2.01",
+        nama: "Penyelenggaraan Rekonstruksi & Peningkatan Kapasitas Jalan Provinsi",
+        opd: "Dinas Bina Marga dan Bina Konstruksi",
+        opdKey: "bmbk",
+        belanja: "modal",
+        pagu: 850000000000,
+        realisasi: 637500000000,
+        status: "waspada",
+        persen: 75.00
+      },
+      {
+        kode: "1.03.01.2.02",
+        nama: "Pemeliharaan Berkala dan Rehabilitasi Jembatan Provinsi",
+        opd: "Dinas Bina Marga dan Bina Konstruksi",
+        opdKey: "bmbk",
+        belanja: "modal",
+        pagu: 350000000000,
+        realisasi: 232500000000,
+        status: "waspada",
+        persen: 66.43
+      },
+      {
+        kode: "1.04.01.2.01",
+        nama: "Peningkatan Kualitas Permukiman Kumuh Pesisir & Pengentasan RTLH",
+        opd: "Dinas Perumahan & Kawasan Permukiman",
+        opdKey: "perkim",
+        belanja: "modal",
+        pagu: 420000000000,
+        realisasi: 198000000000,
+        status: "kritis",
+        persen: 47.14
+      }
+    ];
+
+    // FORMAT RUPIAH INDONESIA
+    function formatRupiah(number) {
+      return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(number);
+    }
+
+    // SWITCH VIEW ANTAR TAB / HALAMAN PRD
+    function switchView(viewId) {
+      // Sembunyikan semua panel
+      document.querySelectorAll('.view-panel').forEach(panel => {
+        panel.classList.add('hidden');
+      });
+
+      // Tampilkan panel yang dipilih
+      const targetPanel = document.getElementById('view-' + viewId);
+      if (targetPanel) {
+        targetPanel.classList.remove('hidden');
+      }
+
+      // Sinkronkan selector dropdown
+      const selector = document.getElementById('quickNavSelector');
+      if (selector) selector.value = viewId;
+
+      // Update state tombol navbar desktop
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        btn.classList.add('text-on-surface-variant');
+      });
+
+      const activeNav = document.getElementById('nav-' + viewId);
+      if (activeNav) {
+        activeNav.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        activeNav.classList.remove('text-on-surface-variant');
+      }
+
+      // Render search table jika buka pencarian
+      if (viewId === 'pencarian') {
+        renderSearchTable(budgetData);
+      }
+
+      // Scroll halus ke atas
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ACCORDION EXPAND/COLLAPSE HIERARKI ANGGARAN
+    function toggleRow(id) {
+      const children = document.querySelectorAll('.child-' + id);
+      const icon = document.getElementById('icon-' + id);
+      
+      children.forEach(child => {
+        child.classList.toggle('hidden');
+      });
+
+      if (icon) {
+        if (icon.textContent === 'keyboard_arrow_down') {
+          icon.textContent = 'chevron_right';
+        } else {
+          icon.textContent = 'keyboard_arrow_down';
+        }
+      }
+    }
+
+    function expandAllHierarchy() {
+      document.querySelectorAll('[class*="child-"]').forEach(el => el.classList.remove('hidden'));
+      document.querySelectorAll('[id^="icon-"]').forEach(icon => icon.textContent = 'keyboard_arrow_down');
+    }
+
+    function collapseAllHierarchy() {
+      document.querySelectorAll('[class*="child-"]').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('[id^="icon-"]').forEach(icon => icon.textContent = 'chevron_right');
+    }
+
+    // FILTER HIERARKI BERDASARKAN OPD
+    function filterOPDView(opd) {
+      document.querySelectorAll('.opd-filter-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('text-on-surface-variant');
+      });
+      const activeBtn = document.getElementById('btn-opd-' + opd);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-primary', 'text-on-primary');
+        activeBtn.classList.remove('text-on-surface-variant');
+      }
+
+      document.querySelectorAll('.opd-row').forEach(row => {
+        if (opd === 'all' || row.classList.contains('opd-' + opd)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // PENAPISAN & PENCARIAN DATA
+    function applyFilters() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const status = document.getElementById('filterStatus').value;
+      const belanja = document.getElementById('filterBelanja').value;
+
+      const filtered = budgetData.filter(item => {
+        const matchQuery = item.nama.toLowerCase().includes(query) || 
+                             item.opd.toLowerCase().includes(query) || 
+                             item.kode.toLowerCase().includes(query);
+        const matchStatus = (status === 'all') || (item.status === status);
+        const matchBelanja = (belanja === 'all') || (item.belanja === belanja);
+        return matchQuery && matchStatus && matchBelanja;
+      });
+
+      renderSearchTable(filtered);
+    }
+
+    function renderSearchTable(data) {
+      const tbody = document.getElementById('searchTableBody');
+      const emptyState = document.getElementById('searchEmptyState');
+      const countLabel = document.getElementById('searchResultCount');
+
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      if (data.length === 0) {
+        emptyState.classList.remove('hidden');
+        countLabel.textContent = "Ditemukan 0 Data";
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      countLabel.textContent = `Ditemukan ${data.length} Data Program Anggaran`;
+
+      data.forEach(item => {
+        let badgeColor = "bg-primary/10 text-primary";
+        let statusLabel = "Optimal";
+        if (item.status === "waspada") {
+          badgeColor = "bg-secondary-fixed text-on-secondary-fixed-variant";
+          statusLabel = "Waspada";
+        } else if (item.status === "kritis") {
+          badgeColor = "bg-error-container text-on-error-container";
+          statusLabel = "Kritis";
+        }
+
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-surface-container-low/40 transition-colors";
+        tr.innerHTML = `
+          <td class="py-3 px-3 font-mono text-outline">${item.kode}</td>
+          <td class="py-3 px-3 font-sans font-medium text-on-surface">${item.nama}</td>
+          <td class="py-3 px-3 font-sans text-on-surface-variant">${item.opd}</td>
+          <td class="py-3 px-3 text-right">${formatRupiah(item.pagu)}</td>
+          <td class="py-3 px-3 text-right text-primary font-bold">${formatRupiah(item.realisasi)}</td>
+          <td class="py-3 px-3 text-center font-sans">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${badgeColor}">
+              ${item.persen.toFixed(2)}% (${statusLabel})
+            </span>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function resetFilters() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('filterStatus').value = 'all';
+      document.getElementById('filterBelanja').value = 'all';
+      renderSearchTable(budgetData);
+    }
+
+    // EKSPOR CSV ASLI (BLOB DENGAN UTF-8 BOM \uFEFF & TITIK KOMA SESUAI SKILL 9)
+    function downloadBudgetCSV() {
+      const headers = ["Kode Akun;Nama Program/Kegiatan;Perangkat Daerah;Pagu Alokasi (Rp);Realisasi SP2D (Rp);Sisa Anggaran (Rp);Persentase Serapan (%)"];
+      const rows = budgetData.map(item => {
+        const sisa = item.pagu - item.realisasi;
+        return `${item.kode};"${item.nama}";"${item.opd}";${item.pagu};${item.realisasi};${sisa};${item.persen}`;
+      });
+
+      const metadata = [
+        `# PEMERINTAH PROVINSI LAMPUNG - BADAN PERENCANAAN PEMBANGUNAN DAERAH (BAPPEDA)`,
+        `# Portal Transparansi APBD Provinsi Lampung T.A. 2026 bekerjasama dengan Universitas Teknokrat Indonesia`,
+        `# Tanggal Ekspor: ${new Date().toLocaleDateString('id-ID')} - Sumber: SP2D Terverifikasi`,
+        `# Hak Cipta: Copyright (c) 2026 by Rafly Iqbal Maulana dan Dr. Erliyan Redy Susanto, M.Kom`
+      ];
+
+      const csvContent = "\uFEFF" + metadata.join("\r\n") + "\r\n" + headers.join("\r\n") + "\r\n" + rows.join("\r\n");
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `APBD-Lampung-2026-Export-${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      showToast("Berkas CSV berhasil diekspor dengan format UTF-8 terbuka.");
+    }
+
+    // SIMULASI UPLOAD DAN VALIDASI DRAFT
+    function simulateFileUpload() {
+      showToast("Memproses pemeriksaan berkas SIPD Lampung...");
+    }
+
+    function fixSimulationRow() {
+      const btn = document.getElementById('btnSaveDraft');
+      btn.disabled = false;
+      btn.classList.remove('bg-surface-container', 'text-outline-variant', 'cursor-not-allowed');
+      btn.classList.add('bg-primary', 'hover:bg-primary-container', 'text-on-primary', 'cursor-pointer');
+      btn.onclick = function() {
+        showToast("Draft v2.5.0 berhasil disimpan! Beralih ke menu Versi & Publikasi.");
+        setTimeout(() => switchView('versi'), 1200);
+      };
+      showToast("Baris 103 telah disesuaikan: Realisasi menjadi positif (Valid).");
+    }
+
+    // MODAL HANDLERS
+    function openPublishModal() {
+      document.getElementById('modalPublish').classList.remove('hidden');
+    }
+    function closePublishModal() {
+      document.getElementById('modalPublish').classList.add('hidden');
+    }
+    function executePublish() {
+      closePublishModal();
+      showToast("Versi v2.5.0-prod resmi dipublikasikan ke portal publik!");
+    }
+
+    function openRetractModal() {
+      document.getElementById('modalRetract').classList.remove('hidden');
+    }
+    function closeRetractModal() {
+      document.getElementById('modalRetract').classList.add('hidden');
+    }
+    function executeRetract() {
+      const reason = document.getElementById('retractReason').value.trim();
+      if (!reason) {
+        alert("Alasan penarikan wajib diisi untuk dicatat dalam log audit!");
+        return;
+      }
+      closeRetractModal();
+      showToast("Data ditarik kembali (Retracted). Publik diarahkan ke versi stabil sebelumnya.");
+    }
+
+    function showUnsubscribeModal() {
+      document.getElementById('modalUnsub').classList.remove('hidden');
+    }
+    function closeUnsubModal() {
+      document.getElementById('modalUnsub').classList.add('hidden');
+    }
+    function confirmUnsub() {
+      closeUnsubModal();
+      showToast("Anda telah berhenti berlangganan dari notifikasi publik.");
+    }
+
+    // SALIN HASH
+    function copyHash(hash) {
+      navigator.clipboard.writeText(hash).then(() => {
+        showToast("Hash SHA-256 tersalin ke papan klip!");
+      }).catch(() => {
+        showToast("Hash SHA-256: " + hash);
+      });
+    }
+
+    // TOAST NOTIFIKASI
+    let toastTimeout;
+    function showToast(message, title = "Notifikasi Sistem") {
+      const toast = document.getElementById('toastNotification');
+      const msgEl = document.getElementById('toastMessage');
+      const titleEl = document.getElementById('toastTitle');
+      if (!toast || !msgEl) return;
+
+      msgEl.textContent = message;
+      if (titleEl) titleEl.textContent = title;
+
+      toast.classList.remove('hidden');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        hideToast();
+      }, 4000);
+    }
+    function hideToast() {
+      const toast = document.getElementById('toastNotification');
+      if (toast) toast.classList.add('hidden');
+    }
+
+    // FORM HANDLERS
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const email = document.getElementById('subEmail').value;
+      showToast(`Terima kasih! Email ${email} terdaftar untuk notifikasi rilis data APBD.`);
+      document.getElementById('subEmail').value = '';
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      showToast("Autentikasi Argon2id berhasil! Mengalihkan ke Dashboard Analis...");
+      setTimeout(() => switchView('internal-bappeda'), 1000);
+    }
+
+    function togglePasswordVisibility() {
+      const pass = document.getElementById('loginPassword');
+      const icon = document.getElementById('passIcon');
+      if (pass.type === 'password') {
+        pass.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        pass.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+
+    // INISIALISASI
+    window.addEventListener('DOMContentLoaded', () => {
+      renderSearchTable(budgetData);
+    });
+  </script>
+</body>
+</html>
+
